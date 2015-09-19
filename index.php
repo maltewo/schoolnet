@@ -11,6 +11,7 @@ if(!isset($_GET['page'])){
     exit();
 }
 
+include "inc/session.php";
 include 'inc/template.php';
 
 ?>
