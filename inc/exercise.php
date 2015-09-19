@@ -17,9 +17,9 @@ function getExercises() {
 		$lResponse = dbQuery("SELECT ID FROM EXERCISES WHERE `GROUP`='%s'", $_SESSION["group"]);
 		return $lResponse;
 	} else if ($_SESSION["role"] == "3") {
-		return dbQuery("SELECT ID FROM EXERCISES WHERE OWNER='%s'", $_SESSION["username"]);
+		return dbQuery("SELECT ID FROM EXERCISES WHERE OWNER='%s'", getUserId());
 	} else if ($_SESSION["role"] == "2") {
-		return dbQuery("SELECT ID FROM EXERCISES");
+		return dbQuery("SELECT ID FROM EXERCISE");
 	}
 	return null;
 }
