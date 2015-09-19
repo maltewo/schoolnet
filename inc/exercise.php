@@ -10,6 +10,15 @@ function createExercise($pTitle, $pText, $pGroup) {
 	dbQuery(cInsertExercise, $pTitle, $pText, $_SESSION["username"], $pGroup);
 }
 
+function getExercises() {
+	
+	if ($_SESSION["accountType"] = "student") {
+		return dbQuery("SELECT ID FROM EXERCISES WHERE GROUP=%s", $_SESSION["group"]);
+	} else {
+		return dbQuery("SELECT ID FROM EXERCISES WHERE OWNER=%s", $_SESSION["username"]);
+	}
+}
+
 function deleteExercise($exerciseId) {
 	$lResponse = dbQuery("SELECT OWNER FROM EXERCISES WHERE ID=%s", $exerciseId)->fetch_assoc();
 	$lOwner = $lResponse[0];
