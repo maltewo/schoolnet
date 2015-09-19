@@ -4,19 +4,22 @@ include_once "inc/account.php";
 include_once "inc/utils.php";
 
 $isLoggingIn = $_POST["login"] == "login";
-$username = $_POST["account"];
-$passwordHash = sha1($_POST["password"]);
-$errorMessage = "Ein Fehler ist aufgetreten";
-$errorOccurred = true;
 
-if (notNull($username) && notNull($_POST["password"])) {
-    if (login($username, $passwordHash)) {
-        $errorOccurred = false;
+if ($isLoggingIn) {
+    $username = $_POST["account"];
+    $passwordHash = sha1($_POST["password"]);
+    $errorMessage = "Ein Fehler ist aufgetreten";
+    $errorOccurred = true;
+
+    if (notNull($username) && notNull($_POST["password"])) {
+        if (login($username, $passwordHash)) {
+            $errorOccurred = false;
+        } else {
+            $errorMessage = "Die eingegebenen Zugangsdaten konnten keinem Nutzerkonto zugeordnet werden.";
+        }
     } else {
-        $errorMessage = "Die eingegebenen Zugangsdaten konnten keinem Nutzerkonto zugeordnet werden.";
+        $errorMessage = "Bitte alle Felder ausf&uuml;llen!";
     }
-} else {
-    $errorMessage = "Bitte alle Felder ausf&uuml;llen!";
 }
 
 //endregion
