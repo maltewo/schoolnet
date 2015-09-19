@@ -18,17 +18,17 @@ include_once 'inc/exercise.php';
       $mExercises = getExercises();
 
   
-	  if ($mExercises == null) {
+	  if ($mExercises == null || $mExercises->num_rows == 0) {
 		echo "Keine verfügbaren Aufgaben!";
 	  } else {
-		  foreach ($mExercises as $mExerciseID) {
-			$mExercise = getExerciseById($mExerciseID);
-	      ?>
-	      <a href="?id=<?php echo $mExercise->mId;?>" class="list-group-item excercise-list">
-	        <h4 class="list-group-item-heading"><?php echo $mExercise->mTitle; ?></h4>
-	      </a>
-		  <?php 
-		  } 
+		  	while ($row == $mExercises->fetch_assoc()) {
+				$mExercise = getExerciseById($mExerciseID);
+			    ?>
+			    <a href="?page=?id=<?php echo $mExercise->mId;?>" class="list-group-item excercise-list">
+			      <h4 class="list-group-item-heading"><?php echo $mExercise->mTitle; ?></h4>
+			    </a>
+				<?php 
+			}
 	  }?>
       
     </div>
