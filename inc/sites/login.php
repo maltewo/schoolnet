@@ -36,7 +36,7 @@ if ($isLoggingIn) {
 <div class="row">
   <div class="col-md-offset-4 col-md-4">
     <?php
-      if ($errorOccurred) echo "<div class='alert alert-danger' role='alert' style='position: absolute; top: 45%; width: 95.5%'>$errorMessage</div>";
+      if ($errorOccurred) echo "<div class='alert alert-danger' role='alert' style='position: absolute; top: 40%; width: 93.75%'>$errorMessage</div>";
       elseif(isset($message)) echo "<div class='alert alert-success' role='alert' style='position: absolute; top: 40%; width: 93.75%'>$message</div>";
     ?>
 

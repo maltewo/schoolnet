@@ -1,0 +1,7 @@
+Class Template {
+	public $page;
+
+	public function loadPage() {
+
+	}
+}

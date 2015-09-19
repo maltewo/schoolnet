@@ -4,14 +4,6 @@
 include "utils.php";
 include "account.php";
 
-// class Template {
-// 	public $page;
-
-// 	public function test() {
-// 		return $this->page;
-// 	}
-// }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
