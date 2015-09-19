@@ -22,7 +22,7 @@ if ($isLoggingIn) {
             $errorMessage = "Die eingegebenen Zugangsdaten konnten keinem Nutzerkonto zugeordnet werden.";
         }
     } else {
-        $errorMessage = "Bitte alle Felder ausf&uuml;llen!";
+        $errorMessage = "Bitte alle Felder ausfüllen!";
     }
 }
 
