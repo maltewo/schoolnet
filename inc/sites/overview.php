@@ -16,17 +16,12 @@ include_once 'inc/exercise.php';
 	  echo "</pre>";
       
       $mExercises = getExercises();
-
-      echo "<pre>";
-      var_dump($mExercises);
-      echo "</pre>";
-       
       
 	  if ($mExercises == null || $mExercises->num_rows == 0) {
 		echo "Keine verfügbaren Aufgaben!";
 	  } else {
 		  	while ($row == $mExercises->fetch_assoc()) {
-				$mExercise = getExerciseById($mExerciseID);
+				$mExercise = getExerciseById($row[0]);
 			    ?>
 			    <a href="?page=?id=<?php echo $mExercise->mId;?>" class="list-group-item excercise-list">
 			      <h4 class="list-group-item-heading"><?php echo $mExercise->mTitle; ?></h4>
