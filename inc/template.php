@@ -1,9 +1,9 @@
-<?
+<?php
 
 //include "force-ssl.php";
+include "inc/session.php";
 
-function templateStart() {
-	?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,19 +12,32 @@ function templateStart() {
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 	<title>SchoolNet</title>
-	<script src="js/jquery.js"></script>
-	<script src="js/jquery-ui.js"></script>
+
 	<!-- Bootstrap -->
 	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/style.css">
+	
+		<?php if($_GET['page'] != "login") {
+			echo '<link href="css/navi.css" rel="stylesheet">';
+		} ?>
+
+	<link href="css/style.css" rel="stylesheet">
 
 	<!--[if lt IE 9]>
 	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 </head>
+	<?php
+		if($_GET['page'] == "login") {
+			echo '<body background = "img/background.jpg" style = "background-size: cover">';
+		} else {
+			echo '<body>';
+		}
+	?>
+	<body>
 
-	<body background = "img/background.jpg" style = "background-size: cover">
+	<?php if($_GET['page'] == "login") {
+	?>
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container">
 			<div class="navbar-header">
@@ -53,14 +66,25 @@ function templateStart() {
 		</div>
 		<!-- /.container -->
 	</nav>
-	<?
-}
-
-function templateStop() {
+	<?php
+	} else {
+	?> <nav id="header">
+		<div id="logo">
+			<a href="#"><img style="padding: 10px; vertical-align: middle;" src="img/logo.png" alt="" /></a>
+		</div>
+		<!--<a href="logout">logout</a>-->
+		<div id="username">
+			<p style="display: inline"><?php echo $_SESSION["username"]; ?></p>
+			<input id="logout" type="submit" value="Logout"/>
+		</div>
+	</nav>
+	<?php
+	}
 	?>
+
+<div id="content">
+<?php include 'inc/sites/' . $_GET['page'] . '.php'; ?>
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-</body>
 </html>
-	<?
-}
