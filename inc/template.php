@@ -35,7 +35,7 @@ include APP_ROOT . "/inc/account.php";
 	<script src="/js/jquery.js" type="text/javascript"></script>
 </head>
 	<?php
-		if($_GET['page'] == "login") {
+		if($_GET['page'] == "login" || $_GET['page'] == "stundenplan") {
 			echo '<body background = "img/background.jpg" style = "background-size: cover">';
 		} else {
 			echo '<body>';
