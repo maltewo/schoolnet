@@ -13,6 +13,7 @@ if ($isLoggingIn) {
 
     if (notNull($username) && notNull($_POST["password"])) {
         if (login($username, $passwordHash)) {
+            redirectTo("http://example.com");
             $errorOccurred = false;
         } else {
             $errorMessage = "Die eingegebenen Zugangsdaten konnten keinem Nutzerkonto zugeordnet werden.";
