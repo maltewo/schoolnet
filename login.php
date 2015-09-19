@@ -35,7 +35,7 @@
 
 
 <div class="row">
-  <div class="center">
+  <div class="center" style="max-width: 600px;">
   	<form class="form-signin" style="margin-top: 50%; padding: 30px; display: block; background-color: rgba(255,255,255,0.8); border: 1px solid rgba(204,204,204,0.9); border-radius:6px; vertical-align: middle; opacity=0.1;">
         <h2 class="form-signin-heading">Anmelden</h2>
         <label for="inputEmail" class="sr-only">E-Mail Adresse</label>
