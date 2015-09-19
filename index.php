@@ -7,11 +7,11 @@
  */
 
 session_start();
-define('APP_ROOT', __DIR__);
+define('APP_ROOT', dirname(__FILE__));
 
 if(!isset($_GET['page'])){
     header("Location: index.php?page=login");
     exit();
 }
 
-include 'inc/template.php';
+require_once 'inc/template.php';
