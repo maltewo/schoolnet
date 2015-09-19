@@ -9,7 +9,7 @@
 const DB_HOST = "127.0.0.3";
 const DB_NAME = "db418933_13";
 const DB_USER = "db418933_13";
-const DB_PASS = "!3@eyG6nHann";
+const DB_PASS = "___dbpass___";
 
 class Database {
     public $link;
