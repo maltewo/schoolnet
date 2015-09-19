@@ -2,6 +2,7 @@
   <div class="col-md-3">
 	
   </div>
+  <form method="POST" action="">
   <div class="col-md-6">
 	<h1 class="center"><b>Neue Aufgabe erstellen<b></h1>
 	<div class="input-group col-md-12">
@@ -42,6 +43,7 @@
 			</div>
 		</div>
   </div>
+  </form>
   <div class="col-md-3">
 	
   </div>
