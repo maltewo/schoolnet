@@ -2,6 +2,7 @@
 //region Logic
 include_once "inc/account.php";
 include_once "inc/utils.php";
+include_once "inc/check.php";
 
 
 $isLoggingIn = $_POST["login"] == "login";
@@ -22,7 +23,7 @@ if ($isLoggingIn) {
             $errorMessage = "Die eingegebenen Zugangsdaten konnten keinem Nutzerkonto zugeordnet werden.";
         }
     } else {
-        $errorMessage = "Bitte alle Felder ausf&uuml;llen!";
+        $errorMessage = "Bitte alle Felder ausfüllen!";
     }
 }
 

@@ -2,8 +2,8 @@
 
 include_once 'db.php';
 
-const cInsertExercise = "INSERT INTO EXERCISES (TITLE, TEXT, OWNER, GROUP) VALUES (%s, %s, %s, %s)";
-const cDeleteExercise = "DELETE * FROM EXERCISES WHERE ID=%s";
+const cInsertExercise = "INSERT INTO EXERCISES (TITLE, TEXT, OWNER, GROUP) VALUES ('%s', '%s', '%s', '%s')";
+const cDeleteExercise = "DELETE * FROM EXERCISES WHERE ID='%s'";
 
 function createExercise($pTitle, $pText, $pGroup) {
 	
@@ -13,14 +13,14 @@ function createExercise($pTitle, $pText, $pGroup) {
 function getExercises() {
 	
 	if ($_SESSION["accountType"] = "student") {
-		return dbQuery("SELECT ID FROM EXERCISES WHERE GROUP=%s", $_SESSION["group"]);
+		return dbQuery("SELECT ID FROM EXERCISES WHERE GROUP='%s'", $_SESSION["group"]);
 	} else {
-		return dbQuery("SELECT ID FROM EXERCISES WHERE OWNER=%s", $_SESSION["username"]);
+		return dbQuery("SELECT ID FROM EXERCISES WHERE OWNER='%s'", $_SESSION["username"]);
 	}
 }
 
 function deleteExercise($exerciseId) {
-	$lResponse = dbQuery("SELECT OWNER FROM EXERCISES WHERE ID=%s", $exerciseId)->fetch_assoc();
+	$lResponse = dbQuery("SELECT OWNER FROM EXERCISES WHERE ID='%s'", $exerciseId)->fetch_assoc();
 	$lOwner = $lResponse[0];
 	
 	if ($_SESSION["username"] == $lOwner) {
@@ -29,11 +29,11 @@ function deleteExercise($exerciseId) {
 }
 
 function addAnswer($pText) {
-	dbQuery("INSERT INTO ANSWERS (TEXT, OWNER) VALUES (%s, %s)", $pText, $_SESSION["username"]);
+	dbQuery("INSERT INTO ANSWERS (TEXT, OWNER) VALUES ('%s', '%s')", $pText, $_SESSION["username"]);
 }
 
 function getExerciseById($exerciseId) {
-	$lResponse = dbQuery("SELECT * FROM EXERCISES WHERE ID=%s", $exerciseId)->fetch_assoc();
+	$lResponse = dbQuery("SELECT * FROM EXERCISES WHERE ID='%s'", $exerciseId)->fetch_assoc();
 	
 	$lId = $exerciseId;
 	$lTitle = $lResponse["TITLE"];
@@ -44,9 +44,9 @@ function getExerciseById($exerciseId) {
 	if ($_SESSION["username"] == $lOwner || $_SESSION["group"] == $lGroup) {
 		$lAnswers;
 		if ($_SESSION["username"] == $lOwner) {
-			$lAnswers = dbQuery("SELECT ID FROM ANSWERS WHERE GROUP=%s", $lGroup)->fetch_assoc();
+			$lAnswers = dbQuery("SELECT ID FROM ANSWERS WHERE GROUP='%s'", $lGroup)->fetch_assoc();
 		} else {
-			$lAnswers = dbQuery("SELECT ID FROM ANSWERS WHERE OWNER=%s", $lOwner)->fetch_assoc();
+			$lAnswers = dbQuery("SELECT ID FROM ANSWERS WHERE OWNER='%s'", $lOwner)->fetch_assoc();
 		}
 		
 		return new Exercise($lId, $lTitle, $lText, $lOwner, $lGroup, $lAnswers);
@@ -57,7 +57,7 @@ function getExerciseById($exerciseId) {
 
 function getStudentsWithAnswer($pAufgabenId) {
 	
-	$lResponse = dbQuery("SELECT OWNER FROM ANSWERS WHERE EXERCISE=%s", $pAufgabenId)->fetch_assoc();
+	$lResponse = dbQuery("SELECT OWNER FROM ANSWERS WHERE EXERCISE='%s'", $pAufgabenId)->fetch_assoc();
 	return $lResponse;
 }
 
