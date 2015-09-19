@@ -31,8 +31,6 @@ function login($username, $passwordHash) {
         $_SESSION["group"] = $userData["GROUP"];
         $_SESSION["role"] = $userData["ROLE"];
         
-        var_dump($userData);
-
         return true;
     } else {
         return false;
