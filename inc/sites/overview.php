@@ -13,9 +13,9 @@ include_once 'inc/exercise.php';
       <?php 
 	  $mExercises = getExercises();
 	  ?>
-	  <pre><?php var_dump($mExercises);?></pre>
+	  <pre><?php var_dump($_SESSION);?></pre>
 	  <?php 
-	  if (!$mExercises) {
+	  if ($mExercises == false) {
 		echo "Keine verfügbaren Aufgaben!";
 	  } else {
 		  foreach ($mExercises as $mExerciseID) {
