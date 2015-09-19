@@ -13,9 +13,9 @@ function createExercise($pTitle, $pText, $pGroup) {
 function getExercises() {
 	
 	if ($_SESSION["accountType"] == "student") {
-		return dbQuery("SELECT ID FROM EXERCISES WHERE `GROUP`='%s'", $_SESSION["group"]);
+		return dbQuery("SELECT ID FROM EXERCISES WHERE `GROUP`='%s'", $_SESSION["group"])->fetch_assoc();
 	} else {
-		return dbQuery("SELECT ID FROM EXERCISES WHERE OWNER='%s'", $_SESSION["username"]);
+		return dbQuery("SELECT ID FROM EXERCISES WHERE OWNER='%s'", $_SESSION["username"])->fetch_assoc();
 	}
 }
 
@@ -50,8 +50,7 @@ function getExerciseById($exerciseId) {
 	$lOwner = $lResponse["OWNER"];
 	$lGroup = $lResponse["GROUP"];
 	
-	var_dump($lResponse);
-	
+
 	if ($_SESSION["username"] == $lOwner || $_SESSION["group"] == $lGroup) {
 		$lAnswers;
 		if ($_SESSION["username"] == $lOwner) {
@@ -68,7 +67,7 @@ function getExerciseById($exerciseId) {
 
 function getAnswerById($pId) {
 	
-	$lResponse = dbQuery("SELECT * FROM ANSWERS WHERE ID='%s'", $pId);
+	$lResponse = dbQuery("SELECT * FROM ANSWERS WHERE ID='%s'", $pId)->fetch_assoc();
 	if ($_SESSION["username"] == $lResponse["OWNER"]) {
 		return new Answer($pId, $lResponse["TEXT"], $lResponse["OWNER"]);
 	}
