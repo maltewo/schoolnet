@@ -17,9 +17,9 @@ function getExercises() {
 		$lResponse = dbQuery("SELECT ID FROM EXERCISES WHERE `GROUP`='%s'", $_SESSION["group"]);
 		return $lResponse;
 	} else if ($_SESSION["role"] == "3") {
-		return dbQuery("SELECT ID FROM EXERCISES WHERE OWNER='%s'", $_SESSION["username"]);
+		return dbQuery("SELECT ID FROM EXERCISES WHERE OWNER='%s'", getUserId());
 	} else if ($_SESSION["role"] == "2") {
-		return dbQuery("SELECT ID FROM EXERCISES");
+		return dbQuery("SELECT ID FROM EXERCISE");
 	}
 	return null;
 }
@@ -54,8 +54,6 @@ function getExerciseById($exerciseId) {
 	$lText = $lResponse["TEXT"];
 	$lOwner = $lResponse["OWNER"];
 	$lGroup = $lResponse["GROUP"];
-	
-	echo "UserID: ".getUserId()." Owner ID: ".$lOwner;
 	
 	if (getUserId() == $lOwner || $_SESSION["group"] == $lGroup) {
 		$lAnswers;
