@@ -69,6 +69,11 @@ function getExerciseById($exerciseId) {
 	return null;
 }
 
+function getUserById($pId) {
+	$lResponse = dbQuery("SELECT USERNAME FROM USERS WHERE ID='%s'", $pId)->fetch_assoc();
+	return $lResponse["USERNAME"];
+}
+
 function getAnswerById($pId) {
 	$lResponse = dbQuery("SELECT * FROM ANSWERS WHERE ID='%s'", $pId)->fetch_assoc();
 	if (getUserId() == $lResponse["OWNER"] || $_SESSION["role"] == 2 || $_SESSION["role"] == 3) {
