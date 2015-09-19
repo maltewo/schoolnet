@@ -70,7 +70,7 @@ include "inc/session.php";
 	} else {
 	?> <nav id="header">
 		<div id="logo">
-			<a href="#"><img style="padding: 10px; max-width: 100px; vertical-align: middle;" src="img/logo.png" alt="" />></a>
+			<a href="#"><img style="padding: 10px; vertical-align: middle;" src="img/logo.png" alt="" /></a>
 		</div>
 		<!--<a href="logout">logout</a>-->
 		<div id="username">
