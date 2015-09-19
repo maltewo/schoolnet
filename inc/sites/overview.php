@@ -11,7 +11,11 @@ include_once 'inc/exercise.php';
     <div class="list-group">
       
       <?php 
-	  $mExercises = getExercises();
+	  echo "<pre>";
+	  var_dump($_SESSION);
+	  echo "</pre>";
+      
+      $mExercises = getExercises();
 
   
 	  if ($mExercises == null) {
