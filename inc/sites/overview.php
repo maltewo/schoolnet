@@ -1,5 +1,5 @@
 <?php 
-include_once 'inc/exercise.php';
+//include_once 'inc/exercise.php';
 ?>
 <div class="row">
   
