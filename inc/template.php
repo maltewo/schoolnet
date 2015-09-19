@@ -67,10 +67,10 @@
 </head>
 
 	<!--BodyElement auswaelen und laden-->
-	<?php $template->setBody(); ?>
+	<?php echo $template->setBody(); ?>
 
 	<!--Richtige Navigation auswaelen und laden-->
-	<?php echo include APP_ROOT . "/inc/sites/navi_login.php"; ?>
+	<?php echo $template->setNavi; ?>
 
 
 <div id="content">
