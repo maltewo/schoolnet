@@ -1,8 +1,7 @@
 <?php
-function loadPage($page){
-	$xpage = $page;
-}
+
 //include "force-ssl.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,7 +58,7 @@ function loadPage($page){
 		</div>
 		<!-- /.container -->
 	</nav>
-<?php include 'inc/' . $_GET['page'] . '.php'; ?>
+<?php include 'inc/sites/' . $_GET['page'] . '.php'; ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 </html>
