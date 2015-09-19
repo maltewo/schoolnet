@@ -1,7 +1,6 @@
 <?
 
 //include "force-ssl.php";
-include "inc/session.php";
 
 function templateStart() {
 	?>
