@@ -1,9 +1,8 @@
 <?php
 //include "force-ssl.php";
 
-include "utils.php";
-include "account.php";
-
+include APP_ROOT . "/inc/utils.php";
+include APP_ROOT . "/inc/account.php";
 // class Template {
 // 	public $page;
 
@@ -27,6 +26,7 @@ include "account.php";
 		} ?>
 
 	<link href="css/style.css" rel="stylesheet">
+	<link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon">
 
 	<!--[if lt IE 9]>
 	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -75,14 +75,14 @@ include "account.php";
 	</nav>
 	<?php
 	} else {
-	?> <nav id="header">
+	?> <nav id="header" style="z-index: 1000;">
 		<div id="logo">
 			<a href="#"><img style="padding: 10px; vertical-align: middle;" src="img/logo.png" alt="" /></a>
 		</div>
 		<!--<a href="logout">logout</a>-->
 		<div id="username">
 			<p style="display: inline"><?php echo $_SESSION["username"]; ?></p>
-			<input id="logout" type="submit" value="Logout"  onclick="<?php logout(); redirectToInline('login.php'); ?>"/>
+			<input id="logout" type="submit" value="Logout" onclick="<?php redirectToInline('index.php?page=login&logout=true'); ?>"/>
 		</div>
 	</nav>
 	<?php
@@ -90,7 +90,14 @@ include "account.php";
 	?>
 
 <div id="content">
-<?php include 'inc/sites/' . $_GET['page'] . '.php'; ?>
+<?php 
+	$template = APP_ROOT . "/inc/sites/" . $_GET['page'] . ".php";
+	if(file_exists($template)) {
+		require_once $template;
+	} else {
+		echo "<h1>Seite nicht gefunden!</h1>";
+	}
+ ?>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>

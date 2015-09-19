@@ -1,5 +1,5 @@
 <?php 
-include_once 'inc/exercise.php';
+require_once APP_ROOT . '/inc/exercise.php';
 ?>
 <div class="row">
   
@@ -11,21 +11,21 @@ include_once 'inc/exercise.php';
     <div class="list-group">
       
       <?php 
-	  $mExercises = getExercises();
-
-	  var_dump($mExercises);
-  
-	  if ($mExercises == null) {
+      
+      $mExercises = getExercises();
+      
+	  if ($mExercises == null || $mExercises->num_rows == 0) {
 		echo "Keine verfügbaren Aufgaben!";
 	  } else {
-		  foreach ($mExercises as $mExerciseID) {
-			$mExercise = getExerciseById($mExerciseID);
-	      ?>
-	      <a href="?id=<?php echo $mExercise->mId;?>" class="list-group-item excercise-list">
-	        <h4 class="list-group-item-heading"><?php echo $mExercise->mTitle; ?></h4>
-	      </a>
-		  <?php 
-		  } 
+		  	while ($row = $mExercises->fetch_assoc()) {
+ 
+				$mExercise = getExerciseById($row['ID']);
+			    ?>
+			    <a href="?page=exercise_results&amp;id=<?php echo $mExercise->mId;?>" class="list-group-item excercise-list">
+			      <h4 class="list-group-item-heading"><?php echo $mExercise->mTitle; ?></h4>
+			    </a>
+				<?php 
+			}
 	  }?>
       
     </div>
