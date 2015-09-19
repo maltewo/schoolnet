@@ -13,7 +13,7 @@ include_once 'inc/exercise.php';
       <?php 
 	  $mExercises = getExercises();
 	  
-	  foreach ($mExercises[] as $mExerciseID) {
+	  foreach ($mExercises as $mExerciseID) {
 		$mExercise = getExerciseById($mExerciseID);
       ?>
       <a href="#" class="list-group-item excercise-list">
