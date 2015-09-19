@@ -12,16 +12,14 @@ include_once 'inc/exercise.php';
       
       <?php 
 	  $mExercises = getExercises();
-	  ?>
-	  <pre><?php var_dump($mExercises);?></pre>
-	  <?php 
-	  if ($mExercises == false) {
+
+	  if ($mExercises == null) {
 		echo "Keine verfügbaren Aufgaben!";
 	  } else {
 		  foreach ($mExercises as $mExerciseID) {
 			$mExercise = getExerciseById($mExerciseID);
 	      ?>
-	      <a href="#" class="list-group-item excercise-list">
+	      <a href="?id=<?php echo $mExercise->mId;?>" class="list-group-item excercise-list">
 	        <h4 class="list-group-item-heading"><?php echo $mExercise->mTitle; ?></h4>
 	        <p class="list-group-item-text"><?php echo $mExercise->mText;?></p>
 	      </a>

@@ -2,7 +2,7 @@
 
 include_once 'db.php';
 
-const cInsertExercise = "INSERT INTO EXERCISES (TITLE, TEXT, OWNER, GROUP) VALUES ('%s', '%s', '%s', '%s')";
+const cInsertExercise = "INSERT INTO EXERCISES (TITLE, TEXT, OWNER, `GROUP`) VALUES ('%s', '%s', '%s', '%s')";
 const cDeleteExercise = "DELETE * FROM EXERCISES WHERE ID='%s'";
 
 function createExercise($pTitle, $pText, $pGroup) {
@@ -12,11 +12,20 @@ function createExercise($pTitle, $pText, $pGroup) {
 
 function getExercises() {
 	
-	if ($_SESSION["accountType"] = "student") {
-		return dbQuery("SELECT ID FROM EXERCISES WHERE GROUP='%s'", $_SESSION["group"]);
+	if ($_SESSION["accountType"] == "student") {
+		return dbQuery("SELECT ID FROM EXERCISES WHERE `GROUP`='%s'", $_SESSION["group"]);
 	} else {
 		return dbQuery("SELECT ID FROM EXERCISES WHERE OWNER='%s'", $_SESSION["username"]);
 	}
+}
+
+function getAnswersByExerciseId($pId) {
+	
+	if ($_SESSION["accountType"] == "teacher") {
+		return dbQuery("SELECT ID FROM ANSWERS WHERE EXERCISE = '%s'", $pId);
+		
+	}
+	return null;
 }
 
 function deleteExercise($exerciseId) {
@@ -44,15 +53,24 @@ function getExerciseById($exerciseId) {
 	if ($_SESSION["username"] == $lOwner || $_SESSION["group"] == $lGroup) {
 		$lAnswers;
 		if ($_SESSION["username"] == $lOwner) {
-			$lAnswers = dbQuery("SELECT ID FROM ANSWERS WHERE GROUP='%s'", $lGroup)->fetch_assoc();
+			$lAnswers = dbQuery("SELECT ID FROM ANSWERS WHERE `GROUP`='%s' AND EXERCISE='%s'", $lGroup, $lId)->fetch_assoc();
 		} else {
-			$lAnswers = dbQuery("SELECT ID FROM ANSWERS WHERE OWNER='%s'", $lOwner)->fetch_assoc();
+			$lAnswers = dbQuery("SELECT ID FROM ANSWERS WHERE OWNER='%s' AND EXERCISE='%s'", $lOwner, $lId)->fetch_assoc();
 		}
 		
 		return new Exercise($lId, $lTitle, $lText, $lOwner, $lGroup, $lAnswers);
 		
 	}
-	return false;
+	return null;
+}
+
+function getAnswerById($pId) {
+	
+	$lResponse = dbQuery("SELECT * FROM ANSWERS WHERE ID='%s'", $pId);
+	if ($_SESSION["username"] == $lResponse["OWNER"]) {
+		return new Answer($pId, $lResponse["TEXT"], $lResponse["OWNER"]);
+	}
+	return null;
 }
 
 function getStudentsWithAnswer($pAufgabenId) {
@@ -63,33 +81,33 @@ function getStudentsWithAnswer($pAufgabenId) {
 
 class Answer {
 	
-	public $Id;
-	public $Text;
-	public $Owner;
+	public $mId;
+	public $mText;
+	public $mOwner;
 	
 	function Answer($pId, $pText, $pOwner) {
 		
-		$this->Id = $pId;
-		$this->Text = $pText;
-		$this->Owner = $pOwner;
+		$this->mId = $pId;
+		$this->mText = $pText;
+		$this->mOwner = $pOwner;
 	}
 }
 
 class Exercise {
 	
-	public $Id;
-	public $Title;
-	public $Text;
-	public $Owner;
-	public $Group;
-	public $Answers;
+	public $mId;
+	public $mTitle;
+	public $mText;
+	public $mOwner;
+	public $mGroup;
+	public $mAnswers;
 
 	function Exercise($pId, $pTitle, $pText, $pOwner, $pGroup, $pAnswers) {
-		$this->Id = $pId;
-		$this->Title = $pTitle;
-		$this->Text = $pText;
-		$this->Group = $pGroup;
-		$this->Owner = $pOwner;
-		$this->Answers = $pAnswers;
+		$this->mId = $pId;
+		$this->mTitle = $pTitle;
+		$this->mText = $pText;
+		$this->mGroup = $pGroup;
+		$this->mOwner = $pOwner;
+		$this->mAnswers = $pAnswers;
 	}
 }
