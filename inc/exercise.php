@@ -83,6 +83,10 @@ function getAnswerById($pId) {
 
 function getUserId() {
 	$lResponse = dbQuery("SELECT ID FROM USERS WHERE USERNAME='%s'", $_SESSION["username"])->fetch_assoc();
+	echo "<pre>";
+	var_dump($lResponse);
+	echo "</pre>";
+	 
 	return $lResponse["ID"];
 }
 
