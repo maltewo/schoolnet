@@ -77,10 +77,10 @@ include "inc/utils.php";
 		<!--<a href="logout">logout</a>-->
 		<div id="username">
 			<p style="display: inline"><? echo $_SESSION["username"]; ?></p>
-			<input id="logout" type="submit" value="Logout" onclick=" <?php logout(); redirectTo("login.php");?> />
+			<input id="logout" type="submit" value="Logout" onclick="<?php logout(); redirectToInline("login.php"); ?>/>
 		</div>
 	</nav>
-	<?
+	<?php
 	}
 	?>
 

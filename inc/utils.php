@@ -17,5 +17,12 @@ function redirectTo($url) {
             window.location.replace("<? echo $url ?>");
         }, 5000);
     </script>
-    <?
+    <?php
+}
+function redirectToInline($url) {
+    ?>
+        setTimeout(function() {
+            window.location.replace("<?php echo $url ?>");
+        }, 5000);
+    <?php
 }
