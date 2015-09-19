@@ -1,5 +1,5 @@
 <?php 
-include_once 'inc/exercise.php';
+require_once APP_ROOT . '/inc/exercise.php';
 ?>
 <div class="row">
   
