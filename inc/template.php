@@ -15,10 +15,6 @@
 			}
 		}
 
-		public function loadPage() {
-			return true;
-		}
-
 		public function setBody() {
 			$page = $this->page;
 
@@ -36,6 +32,17 @@
 				include APP_ROOT . "/inc/sites/navi_login.php";
 			} else {
 				include APP_ROOT . "/inc/sites/navi_normal.php";
+			}
+		}
+
+		public function loadContent(){
+			$page = $this->page;
+
+			$template = APP_ROOT . "/inc/sites/" . $_GET['page'] . ".php"
+			if(file_exists($template)) {
+				require_once $template;
+			} else {
+					echo "<h1>Seite nicht gefunden!</h1>";
 			}
 		}
 	}
@@ -74,14 +81,7 @@
 
 
 <div id="content">
-<?php 
-	$template = APP_ROOT . "/inc/sites/" . $_GET['page'] . ".php";
-	if(file_exists($template)) {
-		require_once $template;
-	} else {
-		echo "<h1>Seite nicht gefunden!</h1>";
-	}
- ?>
+<?php $template->loadContent(); ?>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
