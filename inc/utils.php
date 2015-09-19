@@ -14,8 +14,8 @@ function redirectTo($url) {
     ?>
     <script type="text/javascript">
         setTimeout(function() {
-            window.location.replace("<? echo $url ?>");
+            window.location.replace("<?php echo $url ?>");
         }, 1000);
     </script>
-    <?
+    <?php
 }
