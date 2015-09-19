@@ -1,3 +1,8 @@
+<?
+    include_once "inc/template.php";
+    templateStart();
+?>
+
 <body>
 
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -33,7 +38,12 @@
 <div class="row">
   <div class="col-md-3"></div>
   <div class="col-md-6">
-  	<h2>Übersicht</h2>
+  	<div class="page-header">
+      <h1>Example page header</h1>
+    </div>
   </div>
   <div class="col-md-3"></div>
 </div>
+<?
+templateStop();
+?>
