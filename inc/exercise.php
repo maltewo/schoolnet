@@ -7,17 +7,17 @@ const cDeleteExercise = "DELETE * FROM EXERCISES WHERE ID='%s'";
 
 function createExercise($pTitle, $pText, $pGroup) {
 	
-	dbQuery(cInsertExercise, $pTitle, $pText, $_SESSION["username"], $pGroup);
+	dbQuery(cInsertExercise, $pTitle, $pText, getUserId(), $pGroup);
 }
 
 function getExercises() {
 	
 	if ($_SESSION["role"] == "4") {
 		
-		$lResponse = dbQuery("SELECT ID FROM EXERCISES WHERE `GROUP`='%s'", $_SESSION["group"])->fetch_assoc();
+		$lResponse = dbQuery("SELECT ID FROM EXERCISES WHERE `GROUP`='%s'", $_SESSION["group"]);
 		return $lResponse;
 	} else if ($_SESSION["role"] == "3") {
-		return dbQuery("SELECT ID FROM EXERCISES WHERE OWNER='%s'", $_SESSION["username"])->fetch_assoc();
+		return dbQuery("SELECT ID FROM EXERCISES WHERE OWNER='%s'", $_SESSION["username"]);
 	}
 	return null;
 }
@@ -32,10 +32,10 @@ function getAnswersByExerciseId($pId) {
 }
 
 function deleteExercise($exerciseId) {
-	$lResponse = dbQuery("SELECT OWNER FROM EXERCISES WHERE ID='%s'", $exerciseId)->fetch_assoc();
+	$lResponse = dbQuery("SELECT OWNER FROM EXERCISES WHERE ID='%s'", $exerciseId);
 	$lOwner = $lResponse[0];
 	
-	if ($_SESSION["username"] == $lOwner) {
+	if (getUserId() == $lOwner) {
 		dbQuery(cDeleteExercise, $exerciseId);
 	}
 }
@@ -53,13 +53,12 @@ function getExerciseById($exerciseId) {
 	$lOwner = $lResponse["OWNER"];
 	$lGroup = $lResponse["GROUP"];
 	
-
-	if ($_SESSION["username"] == $lOwner || $_SESSION["group"] == $lGroup) {
+	if (getUserId() == $lOwner || $_SESSION["group"] == $lGroup) {
 		$lAnswers;
-		if ($_SESSION["username"] == $lOwner) {
-			$lAnswers = dbQuery("SELECT ID FROM ANSWERS WHERE `GROUP`='%s' AND EXERCISE='%s'", $lGroup, $lId)->fetch_assoc();
+		if (getUserId() == $lOwner) {
+			$lAnswers = dbQuery("SELECT ID FROM ANSWERS WHERE `GROUP`='%s' AND EXERCISE='%s'", $lGroup, $lId);
 		} else {
-			$lAnswers = dbQuery("SELECT ID FROM ANSWERS WHERE OWNER='%s' AND EXERCISE='%s'", $lOwner, $lId)->fetch_assoc();
+			$lAnswers = dbQuery("SELECT ID FROM ANSWERS WHERE OWNER='%s' AND EXERCISE='%s'", $lOwner, $lId);
 		}
 		
 		return new Exercise($lId, $lTitle, $lText, $lOwner, $lGroup, $lAnswers);
@@ -71,15 +70,20 @@ function getExerciseById($exerciseId) {
 function getAnswerById($pId) {
 	
 	$lResponse = dbQuery("SELECT * FROM ANSWERS WHERE ID='%s'", $pId)->fetch_assoc();
-	if ($_SESSION["username"] == $lResponse["OWNER"]) {
+	if (getUserId() == $lResponse["OWNER"]) {
 		return new Answer($pId, $lResponse["TEXT"], $lResponse["OWNER"]);
 	}
 	return null;
 }
 
+function getUserId() {
+	$lResponse = dbQuery("SELECT ID FROM USERS WHERE USERNAME='%s'", $_SESSION["username"])->fetch_assoc();
+	return $lResponse["ID"];
+}
+
 function getStudentsWithAnswer($pAufgabenId) {
 	
-	$lResponse = dbQuery("SELECT OWNER FROM ANSWERS WHERE EXERCISE='%s'", $pAufgabenId)->fetch_assoc();
+	$lResponse = dbQuery("SELECT OWNER FROM ANSWERS WHERE EXERCISE='%s'", $pAufgabenId);
 	return $lResponse;
 }
 
