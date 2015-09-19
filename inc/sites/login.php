@@ -2,6 +2,7 @@
 //region Logic
 include_once "inc/account.php";
 include_once "inc/utils.php";
+include_once "inc/check.php";
 
 
 $isLoggingIn = $_POST["login"] == "login";
@@ -15,7 +16,7 @@ if ($isLoggingIn) {
 
     if (notNull($username) && notNull($_POST["password"])) {
         if (login($username, $passwordHash)) {
-            $message = '<div class="alert alert-success" role="alert">Erfolgreich Angemeldet!</div>';
+            $message = "Angemeldet!";
             redirectTo("index.php?page=overview");
             $errorOccurred = false;
         } else {
