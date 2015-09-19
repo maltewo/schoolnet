@@ -33,9 +33,9 @@
 			$page = $this->page;
 
 			if($page == "login") {
-				include APP_ROOT . "/inc/navi_login.php";
+				return include "/inc/navi_login.php";
 			} else {
-				include APP_ROOT . "/inc/navi_normal.php";
+				include "/inc/navi_normal.php";
 			}
 		}
 	}
