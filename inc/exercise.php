@@ -18,13 +18,15 @@ function getExercises() {
 		return $lResponse;
 	} else if ($_SESSION["role"] == "3") {
 		return dbQuery("SELECT ID FROM EXERCISES WHERE OWNER='%s'", $_SESSION["username"]);
+	} else if ($_SESSION["role"] == "2") {
+		return dbQuery("SELECT ID FROM EXERCISE");
 	}
 	return null;
 }
 
 function getAnswersByExerciseId($pId) {
 	
-	if ($_SESSION["role"] == "3") {
+	if ($_SESSION["role"] == "3" || $_SESSION["role"] == "2") {
 		return dbQuery("SELECT ID FROM ANSWERS WHERE EXERCISE = '%s'", $pId);
 		
 	}
@@ -52,6 +54,8 @@ function getExerciseById($exerciseId) {
 	$lText = $lResponse["TEXT"];
 	$lOwner = $lResponse["OWNER"];
 	$lGroup = $lResponse["GROUP"];
+	
+	echo "UserID: ".getUserId()." Owner ID: ".$lOwner;
 	
 	if (getUserId() == $lOwner || $_SESSION["group"] == $lGroup) {
 		$lAnswers;
