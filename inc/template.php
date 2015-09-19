@@ -1,16 +1,14 @@
 <?php
 //include "force-ssl.php";
 include "inc/session.php";
-include "inc/utils.php";
-include "inc/account.php";
 
-class Template {
-	public $page;
+// class Template {
+// 	public $page;
 
-	public function test() {
-		return $this->page;
-	}
-}
+// 	public function test() {
+// 		return $this->page;
+// 	}
+// }
 
 ?>
 <!DOCTYPE html>
@@ -81,11 +79,8 @@ class Template {
 		</div>
 		<!--<a href="logout">logout</a>-->
 		<div id="username">
-
 			<p style="display: inline"><?php echo $_SESSION["username"]; ?></p>
-			<input id="logout" type="submit" value="Logout" onclick="<?php logout(); redirectToInline('login.php'); ?>"/>
-
-
+			<input id="logout" type="submit" value="Logout"/>
 		</div>
 	</nav>
 	<?php

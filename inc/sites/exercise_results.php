@@ -14,6 +14,13 @@ $mExercise = getExerciseById($_GET["id"]);
 	<p><?php echo $mExercise->mText;?></p>
 	<h2>Lösungen:</h2>
 	
+
+	<!-- Zu wiederholende Schleife -->
+	<div class="loesung">
+		<h3>Max Mustermann</h3>
+		<p>Lösungen als Fließtext kjadkfksdabjjasdjfgf jsad kfj asdfgjakjgka hfugjkahdf jgkaf sjhga hagjf hkfg kjahjkahgjfhkjgfhjh kj </p>
+	</div>
+	
 	<?php 
 	$mAnswers = getAnswersByExerciseId($_GET["id"]);
 	if ($mAnswers != null) {
@@ -27,5 +34,5 @@ $mExercise = getExerciseById($_GET["id"]);
 	<?php }
 	} ?>
   </div>
-  <div class="col-md-3">.col-md-4</div>
+  <div class="col-md-3"></div>
 </div>

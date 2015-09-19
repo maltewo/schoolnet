@@ -53,9 +53,9 @@ function getExerciseById($exerciseId) {
 	if ($_SESSION["username"] == $lOwner || $_SESSION["group"] == $lGroup) {
 		$lAnswers;
 		if ($_SESSION["username"] == $lOwner) {
-			$lAnswers = dbQuery("SELECT ID FROM ANSWERS WHERE `GROUP`='%s'", $lGroup)->fetch_assoc();
+			$lAnswers = dbQuery("SELECT ID FROM ANSWERS WHERE `GROUP`='%s' AND EXERCISE='%s'", $lGroup, $lId)->fetch_assoc();
 		} else {
-			$lAnswers = dbQuery("SELECT ID FROM ANSWERS WHERE OWNER='%s'", $lOwner)->fetch_assoc();
+			$lAnswers = dbQuery("SELECT ID FROM ANSWERS WHERE OWNER='%s' AND EXERCISE='%s'", $lOwner, $lId)->fetch_assoc();
 		}
 		
 		return new Exercise($lId, $lTitle, $lText, $lOwner, $lGroup, $lAnswers);
