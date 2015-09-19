@@ -6,3 +6,6 @@
  * Time: 11:58
  */
 
+include 'inc/template.php';
+
+?>
