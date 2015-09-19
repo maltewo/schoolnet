@@ -52,11 +52,6 @@ function getExerciseById($exerciseId) {
 	$lText = $lResponse["TEXT"];
 	$lOwner = $lResponse["OWNER"];
 	$lGroup = $lResponse["GROUP"];
-
-	echo "UserID: ".getUserId();
-	echo "Owner: ".$lOwner;
-	echo "Benutzergruppe: ".$_SESSION["group"];
-	echo "Gruppe der Aufgabe: ".$lGroup;
 	
 	if (getUserId() == $lOwner || $_SESSION["group"] == $lGroup) {
 		$lAnswers;
@@ -83,10 +78,6 @@ function getAnswerById($pId) {
 
 function getUserId() {
 	$lResponse = dbQuery("SELECT ID FROM USERS WHERE USERNAME='%s'", $_SESSION["username"])->fetch_assoc();
-	echo "<pre>";
-	var_dump($lResponse);
-	echo "</pre>";
-	 
 	return $lResponse["ID"];
 }
 
