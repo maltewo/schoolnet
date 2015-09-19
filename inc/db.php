@@ -18,7 +18,7 @@ class Database {
 
         /* check connection */
         if ($this->link->connect_errno) {
-            printf("Connect failed: %s\n", $this->link->connect_error);
+            printf("Connect failed: '%s'\n", $this->link->connect_error);
             exit();
         }
     }
