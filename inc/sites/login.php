@@ -2,7 +2,6 @@
 //region Logic
 include_once "inc/account.php";
 include_once "inc/utils.php";
-include_once "inc/check.php";
 
 
 $isLoggingIn = $_POST["login"] == "login";
