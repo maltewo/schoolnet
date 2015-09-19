@@ -12,6 +12,9 @@ include_once 'inc/exercise.php';
       
       <?php 
 	  $mExercises = getExercises();
+	  ?>
+	  <pre><?php var_dump($mExercises);?></pre>
+	  <?php 
 	  
 	  foreach ($mExercises as $mExerciseID) {
 		$mExercise = getExerciseById($mExerciseID);
