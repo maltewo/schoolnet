@@ -7,7 +7,7 @@ const cDeleteExercise = "DELETE * FROM EXERCISES WHERE ID='%s'";
 
 function createExercise($pTitle, $pText, $pGroup) {
 	
-	dbQuery(cInsertExercise, $pTitle, $pText, $_SESSION["username"], $pGroup);
+	dbQuery(cInsertExercise, $pTitle, $pText, getUserId(), $pGroup);
 }
 
 function getExercises() {
@@ -35,7 +35,7 @@ function deleteExercise($exerciseId) {
 	$lResponse = dbQuery("SELECT OWNER FROM EXERCISES WHERE ID='%s'", $exerciseId);
 	$lOwner = $lResponse[0];
 	
-	if ($_SESSION["username"] == $lOwner) {
+	if (getUserId() == $lOwner) {
 		dbQuery(cDeleteExercise, $exerciseId);
 	}
 }
@@ -45,7 +45,7 @@ function addAnswer($pText) {
 }
 
 function getExerciseById($exerciseId) {
-	$lResponse = dbQuery("SELECT * FROM EXERCISES WHERE ID='%s'", $exerciseId);
+	$lResponse = dbQuery("SELECT * FROM EXERCISES WHERE ID='%s'", $exerciseId)->fetch_assoc();
 	
 	$lId = $exerciseId;
 	$lTitle = $lResponse["TITLE"];
@@ -54,9 +54,9 @@ function getExerciseById($exerciseId) {
 	$lGroup = $lResponse["GROUP"];
 	
 
-	if ($_SESSION["username"] == $lOwner || $_SESSION["group"] == $lGroup) {
+	if (getUserId() == $lOwner || $_SESSION["group"] == $lGroup) {
 		$lAnswers;
-		if ($_SESSION["username"] == $lOwner) {
+		if (getUserId() == $lOwner) {
 			$lAnswers = dbQuery("SELECT ID FROM ANSWERS WHERE `GROUP`='%s' AND EXERCISE='%s'", $lGroup, $lId);
 		} else {
 			$lAnswers = dbQuery("SELECT ID FROM ANSWERS WHERE OWNER='%s' AND EXERCISE='%s'", $lOwner, $lId);
@@ -70,11 +70,16 @@ function getExerciseById($exerciseId) {
 
 function getAnswerById($pId) {
 	
-	$lResponse = dbQuery("SELECT * FROM ANSWERS WHERE ID='%s'", $pId);
-	if ($_SESSION["username"] == $lResponse["OWNER"]) {
+	$lResponse = dbQuery("SELECT * FROM ANSWERS WHERE ID='%s'", $pId)->fetch_assoc();
+	if (getUserId() == $lResponse["OWNER"]) {
 		return new Answer($pId, $lResponse["TEXT"], $lResponse["OWNER"]);
 	}
 	return null;
+}
+
+function getUserId() {
+	$lResponse = dbQuery("SELECT ID FROM SCHOOLNET_USERS WHERE USERNAME='%s'", $_SESSION["username"])->fetch_assoc();
+	return $lResponse[0];
 }
 
 function getStudentsWithAnswer($pAufgabenId) {
