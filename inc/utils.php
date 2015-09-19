@@ -20,10 +20,7 @@ function redirectTo($url) {
 }
 function redirectToInline($url) {
     ?>
-        setTimeout(function() {
-           //window.location.replace('<?php echo $url ?>');
-            window.location = '<?php echo $url ?>';
-        }, 5000);
+      window.location = '<?php echo $url ?>';
     <?php
 }
 
