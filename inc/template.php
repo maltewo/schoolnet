@@ -1,6 +1,7 @@
 <?php
 
 //include "force-ssl.php";
+include "inc/session.php";
 
 ?>
 <!DOCTYPE html>
@@ -36,7 +37,8 @@
 	<body>
 
 	<?php if($_GET['page'] == "login") {
-	echo '<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	?>
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -63,18 +65,21 @@
 			<!-- /.navbar-collapse -->
 		</div>
 		<!-- /.container -->
-	</nav>';} 
-	else {
-	echo '<nav id="header">
+	</nav>
+	<?
+	} else {
+	?> <nav id="header">
 		<div id="logo">
-			<a href="#"><img src="img/logo.png" alt=""></img></a>
+			<a href="#"><img style="padding: 10px; vertical-align: middle;" src="img/logo.png" alt="" /></a>
 		</div>
 		<!--<a href="logout">logout</a>-->
 		<div id="username">
-			<p style="display: inline">MusterName</p>
+			<p style="display: inline"><? echo $_SESSION["username"]; ?></p>
 			<input id="logout" type="submit" value="Logout"/>
 		</div>
-	</nav>';}
+	</nav>
+	<?
+	}
 	?>
 
 <div id="content">
