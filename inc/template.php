@@ -68,7 +68,7 @@ include "inc/utils.php";
 		</div>
 		<!-- /.container -->
 	</nav>
-	<?
+	<?php
 	} else {
 	?> <nav id="header">
 		<div id="logo">
@@ -78,6 +78,7 @@ include "inc/utils.php";
 		<div id="username">
 			<p style="display: inline"><? echo $_SESSION["username"]; ?></p>
 			<input id="logout" type="submit" value="Logout" onclick="<?php logout(); redirectToInline("login.php"); ?>/>
+
 		</div>
 	</nav>
 	<?php
