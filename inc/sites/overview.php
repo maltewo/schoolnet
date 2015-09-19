@@ -17,6 +17,7 @@ include_once 'inc/exercise.php';
 	  if ($mExercises == null) {
 		echo "Keine verfügbaren Aufgaben!";
 	  } else {
+			var_dump($mExercises);
 		  foreach ($mExercises as $mExerciseID) {
 			$mExercise = getExerciseById($mExerciseID);
 			var_dump($mExercise);
