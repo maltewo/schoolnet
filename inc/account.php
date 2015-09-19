@@ -6,7 +6,7 @@
  * Time: 11:00
  */
 
-include_once 'db.php';
+require_once APP_ROOT . '/inc/db.php';
 
 //region Functions
 function isLoggedIn() {
@@ -22,8 +22,6 @@ function isValid($username, $passwordhash) {
 }
 function login($username, $passwordHash) {
     if (isValid($username, $passwordHash)) {
-        session_reset();
-        session_regenerate_id(true);
         $userData = dbQuery("SELECT * FROM USERS WHERE USERNAME = '%s'", $username)->fetch_assoc();
 
        

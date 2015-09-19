@@ -1,5 +1,5 @@
 <?php 
-include_once 'inc/exercise.php';
+require_once APP_ROOT . '/inc/exercise.php';
 ?>
 <div class="row">
   
@@ -19,10 +19,9 @@ include_once 'inc/exercise.php';
 	  } else {
 		  	while ($row = $mExercises->fetch_assoc()) {
  
-				$mExercise = getExerciseById($row["ID"]);
-
+				$mExercise = getExerciseById($row['ID']);
 			    ?>
-			    <a href="?page=exercise_results&id=<?php echo $mExercise->mId;?>" class="list-group-item excercise-list">
+			    <a href="?page=exercise_results&amp;id=<?php echo $mExercise->mId;?>" class="list-group-item excercise-list">
 			      <h4 class="list-group-item-heading"><?php echo $mExercise->mTitle; ?></h4>
 			    </a>
 				<?php 

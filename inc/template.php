@@ -1,9 +1,8 @@
 <?php
 //include "force-ssl.php";
 
-include "utils.php";
-include "account.php";
-
+include APP_ROOT . "/inc/utils.php";
+include APP_ROOT . "/inc/account.php";
 // class Template {
 // 	public $page;
 
@@ -90,8 +89,15 @@ include "account.php";
 	}
 	?>
 
-<div id="content" style="padding: 15px;">
-<?php include 'inc/sites/' . $_GET['page'] . '.php'; ?>
+<div id="content">
+<?php 
+	$template = APP_ROOT . "/inc/sites/" . $_GET['page'] . ".php";
+	if(file_exists($template)) {
+		require_once $template;
+	} else {
+		echo "<h1>Seite nicht gefunden!</h1>";
+	}
+ ?>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
