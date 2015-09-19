@@ -18,6 +18,7 @@ $mExercise = getExerciseById($_GET["id"]);
 	if ($mAnswers != null) {
 		while ($mAnswerId = $mAnswers->fetch_assoc()) {
 			$mAnswer = getAnswerById($mAnswerId["ID"]);
+			echo "<pre>".var_dump($mAnswer)."</pre>";
 	?>
 		<div class="loesung">
 			<h3><?php echo $mAnswer->mOwner;?></h3>
