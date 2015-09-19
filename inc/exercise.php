@@ -83,7 +83,11 @@ function getAnswerById($pId) {
 
 function getUserId() {
 	$lResponse = dbQuery("SELECT ID FROM USERS WHERE USERNAME='%s'", $_SESSION["username"])->fetch_assoc();
-	return $lResponse[0];
+	echo "<pre>";
+	var_dump($lResponse);
+	echo "</pre>";
+	 
+	return $lResponse["ID"];
 }
 
 function getStudentsWithAnswer($pAufgabenId) {
