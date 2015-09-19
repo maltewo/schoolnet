@@ -24,7 +24,7 @@ function login($username, $passwordHash) {
     if (isValid($username, $passwordHash)) {
         session_reset();
         session_regenerate_id(true);
-        $userData = dbQuery("SELECT GROUP FROM USERS WHERE USERNAME = '%s'", $_SESSION["username"])->fetch_assoc();
+        $userData = dbQuery("SELECT * FROM USERS WHERE USERNAME = '%s'", $_SESSION["username"])->fetch_assoc();
 
         $_SESSION["username"] = $username;
         $_SESSION["passwordHash"] = $passwordHash;
