@@ -27,6 +27,7 @@ include "account.php";
 		} ?>
 
 	<link href="css/style.css" rel="stylesheet">
+	<link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon">
 
 	<!--[if lt IE 9]>
 	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
