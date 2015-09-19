@@ -71,8 +71,7 @@ function getExerciseById($exerciseId) {
 
 function getAnswerById($pId) {
 	$lResponse = dbQuery("SELECT * FROM ANSWERS WHERE ID='%s'", $pId)->fetch_assoc();
-	echo "<pre>".var_dump($lResponse)."</pre>";
-	if (getUserId() == $lResponse["OWNER"]) {
+	if (getUserId() == $lResponse["OWNER"] || $_SESSION["role"] == 2 || $_SESSION["role"] == 3) {
 		return new Answer($pId, $lResponse["TEXT"], $lResponse["OWNER"]);
 	}
 	return null;
