@@ -14,6 +14,11 @@
 
 	<!-- Bootstrap -->
 	<link href="css/bootstrap.min.css" rel="stylesheet">
+	
+		<?php if($_GET['page'] != "login") {
+			echo '<link href="css/navi.css" rel="stylesheet">';
+		} ?>
+
 	<link href="css/style.css" rel="stylesheet">
 
 	<!--[if lt IE 9]>
@@ -30,7 +35,8 @@
 	?>
 	<body>
 
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<?php if($_GET['page'] == "login") {
+	echo '<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -57,8 +63,23 @@
 			<!-- /.navbar-collapse -->
 		</div>
 		<!-- /.container -->
-	</nav>
+	</nav>';} 
+	else {
+	echo '<nav id="header">
+		<div id="logo">
+			<a href="#"><img src="img/logo.png" alt=""></img></a>
+		</div>
+		<!--<a href="logout">logout</a>-->
+		<div id="username">
+			<p style="display: inline">MusterName</p>
+			<input id="logout" type="submit" value="Logout"/>
+		</div>
+	</nav>';}
+	?>
+
+<div id="content">
 <?php include 'inc/sites/' . $_GET['page'] . '.php'; ?>
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 </html>
