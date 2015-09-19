@@ -1,15 +1,27 @@
 <?php
-//include "force-ssl.php";
+	//include "force-ssl.php";
 
-include APP_ROOT . "/inc/utils.php";
-include APP_ROOT . "/inc/account.php";
-// class Template {
-// 	public $page;
+	include APP_ROOT . "/inc/utils.php";
+	include APP_ROOT . "/inc/account.php";
 
-// 	public function test() {
-// 		return $this->page;
-// 	}
-// }
+	Class Template {
+		public $page;
+
+		public function loadNavigation() {
+			$page = $this->page;
+
+			if($page != "login") {
+				return '<link href="css/navi.css" rel="stylesheet">';
+			}
+		}
+
+		public function loadPage() {
+			return true;
+		}
+	}
+
+	$template = new Template();
+	$template->page = $_GET["page"];
 
 ?>
 <!DOCTYPE html>
@@ -21,9 +33,7 @@ include APP_ROOT . "/inc/account.php";
 	<title>SchoolNet</title>
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	
-		<?php if($_GET['page'] != "login") {
-			echo '<link href="css/navi.css" rel="stylesheet">';
-		} ?>
+		<?php $template->loadNavigation() ?>
 
 	<link href="css/style.css" rel="stylesheet">
 	<link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon">
@@ -35,7 +45,7 @@ include APP_ROOT . "/inc/account.php";
 	<script src="/js/jquery.js" type="text/javascript"></script>
 </head>
 	<?php
-		if($_GET['page'] == "login") {
+		if($_GET['page'] == "login" || $_GET['page'] == "stundenplan") {
 			echo '<body background = "img/background.jpg" style = "background-size: cover">';
 		} else {
 			echo '<body>';
