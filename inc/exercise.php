@@ -50,6 +50,8 @@ function getExerciseById($exerciseId) {
 	$lOwner = $lResponse["OWNER"];
 	$lGroup = $lResponse["GROUP"];
 	
+	var_dump($lResponse);
+	
 	if ($_SESSION["username"] == $lOwner || $_SESSION["group"] == $lGroup) {
 		$lAnswers;
 		if ($_SESSION["username"] == $lOwner) {
