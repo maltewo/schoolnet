@@ -13,13 +13,13 @@ include_once 'inc/exercise.php';
       <?php 
 	  $mExercises = getExercises();
 
+	  var_dump($mExercises);
   
 	  if ($mExercises == null) {
 		echo "Keine verfügbaren Aufgaben!";
 	  } else {
 		  foreach ($mExercises as $mExerciseID) {
 			$mExercise = getExerciseById($mExerciseID);
-			var_dump($mExercise);
 	      ?>
 	      <a href="?id=<?php echo $mExercise->mId;?>" class="list-group-item excercise-list">
 	        <h4 class="list-group-item-heading"><?php echo $mExercise->mTitle; ?></h4>
