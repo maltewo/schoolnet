@@ -55,7 +55,6 @@ function getExerciseById($exerciseId) {
 	$lOwner = $lResponse["OWNER"];
 	$lGroup = $lResponse["GROUP"];
 	
-
 	if (getUserId() == $lOwner || $_SESSION["group"] == $lGroup) {
 		$lAnswers;
 		if (getUserId() == $lOwner) {
@@ -81,7 +80,7 @@ function getAnswerById($pId) {
 
 function getUserId() {
 	$lResponse = dbQuery("SELECT ID FROM USERS WHERE USERNAME='%s'", $_SESSION["username"])->fetch_assoc();
-	return $lResponse;
+	return $lResponse["ID"];
 }
 
 function getStudentsWithAnswer($pAufgabenId) {

@@ -26,6 +26,7 @@ include APP_ROOT . "/inc/account.php";
 		} ?>
 
 	<link href="css/style.css" rel="stylesheet">
+	<link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon">
 
 	<!--[if lt IE 9]>
 	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -74,13 +75,13 @@ include APP_ROOT . "/inc/account.php";
 	</nav>
 	<?php
 	} else {
-	?> <nav id="header">
+	?> <nav id="header" style="z-index: 1000;">
 		<div id="logo">
 			<a href="#"><img style="padding: 10px; vertical-align: middle;" src="img/logo.png" alt="" /></a>
 		</div>
 		<!--<a href="logout">logout</a>-->
 		<div id="username">
-			<p style="display: inline"><?php echo $_SESSION["username"]; echo " status: ".session_status(); ?></p>
+			<p style="display: inline"><?php echo $_SESSION["username"]; ?></p>
 			<input id="logout" type="submit" value="Logout" onclick="<?php redirectToInline('index.php?page=login&logout=true'); ?>"/>
 		</div>
 	</nav>
