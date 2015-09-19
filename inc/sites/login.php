@@ -34,7 +34,7 @@ if ($isLoggingIn) {
 ?>
 <div class="row">
     <?php
-    if ($errorOccurred) echo "<div class='alert alert-danger' role='alert' style='position: absolute; top: 100px; left: auto; right: auto; margin: auto; text-align: center;'>$errorMessage</div><br>";
+    if ($errorOccurred) echo "<div class='alert alert-danger' role='alert' style='position: relative; top: 100px; left: auto; right: auto; margin: auto; text-align: center; max-width: 600px; font-size: 18px;'>$errorMessage</div><br>";
     ?>
   <div class="col-md-offset-4 col-md-4">
         <form class="form-signin" method="post" action="index.php?page=login" style="margin-top: 50%;padding: 30px; display: block; background-color: rgba(255,255,255,0.8); border: 1px solid rgba(204,204,204,0.9); border-radius:6px; vertical-align: middle; opacity=0.1;">
