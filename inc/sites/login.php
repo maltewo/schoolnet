@@ -44,7 +44,7 @@ if ($isLoggingIn) {
         <h2 class="form-signin-heading">Anmelden</h2>
         <input type="hidden" name="login" value="login">
         <input type="text" name="account" class="form-control" placeholder="Benutzername" required autofocus>
-        <input type="password" name="password" class="form-control" placeholder="Passwort" required>
+        <input type="password" name="password" class="form-control" placeholder="Passwort" required style="margin-top: 15px;">
         <button class="btn btn-lg btn-primary btn-block" type="submit" style="margin-top: 20px;">Anmelden</button>
       </form>
   </div>
