@@ -2,6 +2,8 @@
 
 //include "force-ssl.php";
 include "inc/session.php";
+include "inc/account.php";
+include "inc/utils.php";
 
 ?>
 <!DOCTYPE html>
@@ -75,7 +77,7 @@ include "inc/session.php";
 		<!--<a href="logout">logout</a>-->
 		<div id="username">
 			<p style="display: inline"><? echo $_SESSION["username"]; ?></p>
-			<input id="logout" type="submit" value="Logout"/>
+			<input id="logout" type="submit" value="Logout" onclick=" <?php logout(); redirectTo("login.php");?> />
 		</div>
 	</nav>
 	<?
