@@ -78,7 +78,7 @@ function getAnswerById($pId) {
 }
 
 function getUserId() {
-	$lResponse = dbQuery("SELECT ID FROM SCHOOLNET_USERS WHERE USERNAME='%s'", $_SESSION["username"])->fetch_assoc();
+	$lResponse = dbQuery("SELECT ID FROM USER WHERE USERNAME='%s'", $_SESSION["username"])->fetch_assoc();
 	return $lResponse[0];
 }
 
