@@ -1,11 +1,10 @@
-<?php
+<?
 
 //include "force-ssl.php";
 include "inc/session.php";
-include "inc/account.php";
-include "inc/utils.php";
 
-?>
+function templateStart() {
+	?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,29 +16,15 @@ include "inc/utils.php";
 
 	<!-- Bootstrap -->
 	<link href="css/bootstrap.min.css" rel="stylesheet">
-	
-		<?php if($_GET['page'] != "login") {
-			echo '<link href="css/navi.css" rel="stylesheet">';
-		} ?>
-
-	<link href="css/style.css" rel="stylesheet">
+	<link href="css/style.css">
 
 	<!--[if lt IE 9]>
 	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 </head>
-	<?php
-		if($_GET['page'] == "login") {
-			echo '<body background = "img/background.jpg" style = "background-size: cover">';
-		} else {
-			echo '<body>';
-		}
-	?>
-	<body>
 
-	<?php if($_GET['page'] == "login") {
-	?>
+	<body background = "img/background.jpg" style = "background-size: cover">
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container">
 			<div class="navbar-header">
@@ -68,25 +53,14 @@ include "inc/utils.php";
 		</div>
 		<!-- /.container -->
 	</nav>
-	<?php
-	} else {
-	?> <nav id="header">
-		<div id="logo">
-			<a href="#"><img style="padding: 10px; vertical-align: middle;" src="img/logo.png" alt="" /></a>
-		</div>
-		<!--<a href="logout">logout</a>-->
-		<div id="username">
-			<p style="display: inline"><?php echo $_SESSION["username"]; ?></p>
-			<input id="logout" type="submit" value="Logout" onclick=" <?php logout(); redirectTo("login.php");?> />
-		</div>
-	</nav>
-	<?php
-	}
-	?>
+	<?
+}
 
-<div id="content">
-<?php include 'inc/sites/' . $_GET['page'] . '.php'; ?>
-</div>
+function templateStop() {
+	?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+</body>
 </html>
+	<?
+}
