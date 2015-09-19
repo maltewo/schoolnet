@@ -52,11 +52,6 @@ function getExerciseById($exerciseId) {
 	$lText = $lResponse["TEXT"];
 	$lOwner = $lResponse["OWNER"];
 	$lGroup = $lResponse["GROUP"];
-	
-	echo "<pre>";
-	var_dump($lResponse);
-	echo "</pre>";
-	 
 
 	if (getUserId() == $lOwner || $_SESSION["group"] == $lGroup) {
 		$lAnswers;

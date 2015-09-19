@@ -26,8 +26,12 @@ include_once 'inc/exercise.php';
 				echo "</pre>";
  
 				$mExercise = getExerciseById($row["ID"]);
+				echo "<pre>";
+				var_dump($mExercise);
+				echo "</pre>";
+				 
 			    ?>
-			    <a href="?page=?id=<?php echo $mExercise->mId;?>" class="list-group-item excercise-list">
+			    <a href="?page=results&id=<?php echo $mExercise->mId;?>" class="list-group-item excercise-list">
 			      <h4 class="list-group-item-heading"><?php echo $mExercise->mTitle; ?></h4>
 			    </a>
 				<?php 
