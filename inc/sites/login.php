@@ -9,11 +9,13 @@ if ($isLoggingIn) {
     $username = $_POST["account"];
     $passwordHash = sha1($_POST["password"]);
     $errorMessage = "Ein Fehler ist aufgetreten";
+    $message = null;
     $errorOccurred = true;
 
     if (notNull($username) && notNull($_POST["password"])) {
         if (login($username, $passwordHash)) {
-            redirectTo("http://example.com");
+            $message = "Angemeldet!";
+            redirectTo("index.php?page=overview");
             $errorOccurred = false;
         } else {
             $errorMessage = "Die eingegebenen Zugangsdaten konnten keinem Nutzerkonto zugeordnet werden.";
@@ -32,6 +34,7 @@ if ($isLoggingIn) {
         <h2 class="form-signin-heading">Anmelden</h2>
         <?
         if ($errorOccurred) echo "<h3 style='color: red;'>$errorMessage</h3>";
+        if (notNull($message)) echo "<h3 style='color: green;'>$message</h3>";
         ?>
         <input type="hidden" name="login" value="login">
         <input type="text" name="account" class="form-control" placeholder="Benutzername" required autofocus>
