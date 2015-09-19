@@ -69,7 +69,7 @@
 	<!--BodyElement auswaelen und laden-->
 	<?php $template->setBody(); ?>
 
-
+	<!--Richtige Navigation auswaelen und laden-->
 	<?php echo include "/inc/sites/navi_login.php"; ?>
 
 
