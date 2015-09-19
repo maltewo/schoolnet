@@ -4,7 +4,7 @@
   <div class="col-md-3"></div>
   <div class="col-md-6">
     <div class="page-header">
-      <h1>Example page header </h1>
+      <h1>Aufgabenübersicht</h1>
     </div>
     <div class="list-group">
       <a href="#" class="list-group-item excercise-list">
