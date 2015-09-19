@@ -13,7 +13,7 @@ include_once 'inc/exercise.php';
       <?php 
 	  $mExercises = getExercises();
 	  ?>
-	  <pre><?php var_dump($_SESSION);?></pre>
+	  <pre><?php var_dump($mExercises);?></pre>
 	  <?php 
 	  if ($mExercises == false) {
 		echo "Keine verfügbaren Aufgaben!";
