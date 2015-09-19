@@ -33,12 +33,11 @@ if ($isLoggingIn) {
 //endregion
 ?>
 <div class="row">
-  <div class="col-md-offset-4 col-md-4">
     <?php
-      if ($errorOccurred) echo "<div class='alert alert-danger' role='alert' style='position: absolute;'>$errorMessage</div><br>";
+    if ($errorOccurred) echo "<div class='alert alert-danger' role='alert' style='position: absolute; top: 100px;'>$errorMessage</div><br>";
     ?>
-
-    <form class="form-signin" method="post" action="index.php?page=login" style="margin-top: 50%;padding: 30px; display: block; background-color: rgba(255,255,255,0.8); border: 1px solid rgba(204,204,204,0.9); border-radius:6px; vertical-align: middle; opacity=0.1;">
+  <div class="col-md-offset-4 col-md-4">
+        <form class="form-signin" method="post" action="index.php?page=login" style="margin-top: 50%;padding: 30px; display: block; background-color: rgba(255,255,255,0.8); border: 1px solid rgba(204,204,204,0.9); border-radius:6px; vertical-align: middle; opacity=0.1;">
         <h2 class="form-signin-heading"><? echo $errorOccurred || !$isLoggingIn ? "Anmelden" : "Angemeldet!"; ?></h2>
         <input type="hidden" name="login" value="login">
         <input type="text" name="account" class="form-control" placeholder="Benutzername" required autofocus style="height:50px; font-size:20px; margin-top:25px">
