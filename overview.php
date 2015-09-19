@@ -1,3 +1,8 @@
+<?
+    include_once "inc/template.php";
+    templateStart();
+?>
+
 <body>
 
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -37,3 +42,6 @@
   </div>
   <div class="col-md-3"></div>
 </div>
+<?
+templateStop();
+?>
