@@ -1,6 +1,7 @@
 <?php
 
 //include "force-ssl.php";
+include "inc/session.php";
 
 ?>
 <!DOCTYPE html>
