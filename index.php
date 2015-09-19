@@ -6,12 +6,13 @@
  * Time: 11:58
  */
 
+include "inc/session.php";
+
 if(!isset($_GET['page'])){
     header("Location: index.php?page=login");
     exit();
 }
 
-include "inc/session.php";
 include 'inc/template.php';
 
 // $template = new Template();
