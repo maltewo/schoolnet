@@ -33,7 +33,7 @@
 			$page = $this->page;
 
 			if($page == "login") {
-				return include "/inc/navi_login.php";
+				include "/inc/navi_login.php";
 			} else {
 				include "/inc/navi_normal.php";
 			}
@@ -70,7 +70,7 @@
 	<?php $template->setBody(); ?>
 
 
-	<?php echo $template->setNavi(); ?>
+	<?php echo include "/inc/navi_login.php"; ?>
 
 
 <div id="content">
