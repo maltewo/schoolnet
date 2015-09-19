@@ -33,10 +33,8 @@ if ($isLoggingIn) {
         if ($errorOccurred) echo "<h3 style='color: red;'>$errorMessage</h3>";
         ?>
         <input type="hidden" name="login" value="login">
-        <label for="inputEmail" class="sr-only">Benutzername</label>
-        <input type="email" id="inputEmail" name="account" class="form-control" placeholder="Benutzername" required autofocus>
-        <label for="inputPassword" class="sr-only">Passwort</label>
-        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Passwort" required>
+        <input type="text" name="account" class="form-control" placeholder="Benutzername" required autofocus>
+        <input type="password" name="password" class="form-control" placeholder="Passwort" required>
         <button class="btn btn-lg btn-primary btn-block" type="submit" style="margin-top: 20px;">Anmelden</button>
       </form>
   </div>
