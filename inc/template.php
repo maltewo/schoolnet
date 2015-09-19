@@ -75,7 +75,7 @@ include "account.php";
 	</nav>
 	<?php
 	} else {
-	?> <nav id="header">
+	?> <nav id="header" style="z-index: 1000;">
 		<div id="logo">
 			<a href="#"><img style="padding: 10px; vertical-align: middle;" src="img/logo.png" alt="" /></a>
 		</div>
