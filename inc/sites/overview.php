@@ -21,6 +21,10 @@ include_once 'inc/exercise.php';
 		echo "Keine verfügbaren Aufgaben!";
 	  } else {
 		  	while ($row == $mExercises->fetch_assoc()) {
+				echo "<pre>";
+				var_dump($row);
+				echo "</pre>";
+ 
 				$mExercise = getExerciseById($row[0]);
 			    ?>
 			    <a href="?page=?id=<?php echo $mExercise->mId;?>" class="list-group-item excercise-list">
