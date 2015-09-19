@@ -1,6 +1,7 @@
 <?
 //region Logic
 include_once "inc/account.php";
+include_once "inc/utils.php";
 
 $isLoggingIn = $_POST["login"] == "login";
 $username = $_POST["account"];
