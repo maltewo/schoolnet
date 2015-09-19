@@ -1,7 +1,16 @@
 <?php
-
 //include "force-ssl.php";
 include "inc/session.php";
+include "inc/utils.php";
+include "inc/account.php";
+
+class Template {
+	public $page;
+
+	public function test() {
+		return $this->page;
+	}
+}
 
 ?>
 <!DOCTYPE html>
@@ -10,10 +19,7 @@ include "inc/session.php";
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 	<title>SchoolNet</title>
-
-	<!-- Bootstrap -->
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	
 		<?php if($_GET['page'] != "login") {
@@ -75,8 +81,11 @@ include "inc/session.php";
 		</div>
 		<!--<a href="logout">logout</a>-->
 		<div id="username">
+
 			<p style="display: inline"><?php echo $_SESSION["username"]; ?></p>
-			<input id="logout" type="submit" value="Logout"/>
+			<input id="logout" type="submit" value="Logout" onclick="<?php logout(); redirectToInline('login.php'); ?>"/>
+
+
 		</div>
 	</nav>
 	<?php

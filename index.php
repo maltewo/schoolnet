@@ -14,4 +14,8 @@ if(!isset($_GET['page'])){
 include "inc/session.php";
 include 'inc/template.php';
 
+// $template = new Template();
+// $Template->page = "login";
+// Echo $Template->test;
+
 ?>
