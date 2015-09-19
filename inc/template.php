@@ -1,6 +1,8 @@
 <?php
 	//include "force-ssl.php";
 
+	include "utils.php";
+	include "account.php";
 
 ?>
 <!DOCTYPE html>
