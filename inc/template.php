@@ -73,7 +73,7 @@
 		</div>
 		<!--<a href="logout">logout</a>-->
 		<div id="username">
-			<p style="display: inline"><? echo $_SESSION["mname"]; ?></p>
+			<p style="display: inline"><? echo $_SESSION["username"]; ?></p>
 			<input id="logout" type="submit" value="Logout"/>
 		</div>
 	</nav>
