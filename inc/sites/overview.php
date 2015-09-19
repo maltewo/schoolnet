@@ -15,7 +15,7 @@ include_once 'inc/exercise.php';
 	  ?>
 	  <pre><?php var_dump($mExercises);?></pre>
 	  <?php 
-	  if (!$mExercises) {
+	  if ($mExercises == false) {
 		echo "Keine verfügbaren Aufgaben!";
 	  } else {
 		  foreach ($mExercises as $mExerciseID) {
