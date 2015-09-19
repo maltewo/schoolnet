@@ -2,7 +2,7 @@
 
 include_once 'db.php';
 
-const cInsertExercise = "INSERT INTO EXERCISES (TITLE, TEXT, OWNER, GROUP) VALUES ('%s', '%s', '%s', '%s')";
+const cInsertExercise = "INSERT INTO EXERCISES (TITLE, TEXT, OWNER, `GROUP`) VALUES ('%s', '%s', '%s', '%s')";
 const cDeleteExercise = "DELETE * FROM EXERCISES WHERE ID='%s'";
 
 function createExercise($pTitle, $pText, $pGroup) {
@@ -13,7 +13,7 @@ function createExercise($pTitle, $pText, $pGroup) {
 function getExercises() {
 	
 	if ($_SESSION["accountType"] == "student") {
-		return dbQuery("SELECT ID FROM EXERCISES WHERE GROUP='%s'", $_SESSION["group"]);
+		return dbQuery("SELECT ID FROM EXERCISES WHERE `GROUP`='%s'", $_SESSION["group"]);
 	} else {
 		return dbQuery("SELECT ID FROM EXERCISES WHERE OWNER='%s'", $_SESSION["username"]);
 	}
@@ -53,7 +53,7 @@ function getExerciseById($exerciseId) {
 	if ($_SESSION["username"] == $lOwner || $_SESSION["group"] == $lGroup) {
 		$lAnswers;
 		if ($_SESSION["username"] == $lOwner) {
-			$lAnswers = dbQuery("SELECT ID FROM ANSWERS WHERE GROUP='%s'", $lGroup)->fetch_assoc();
+			$lAnswers = dbQuery("SELECT ID FROM ANSWERS WHERE `GROUP`='%s'", $lGroup)->fetch_assoc();
 		} else {
 			$lAnswers = dbQuery("SELECT ID FROM ANSWERS WHERE OWNER='%s'", $lOwner)->fetch_assoc();
 		}
