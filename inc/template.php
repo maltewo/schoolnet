@@ -1,8 +1,6 @@
 <?php
-//include "force-ssl.php";
+	//include "force-ssl.php";
 
-include "utils.php";
-include "account.php";
 
 ?>
 <!DOCTYPE html>
@@ -14,9 +12,7 @@ include "account.php";
 	<title>SchoolNet</title>
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	
-		<?php if($_GET['page'] != "login") {
-			echo '<link href="css/navi.css" rel="stylesheet">';
-		} ?>
+		<?php $loadNavigation() ?>
 
 	<link href="css/style.css" rel="stylesheet">
 
