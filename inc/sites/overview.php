@@ -11,9 +11,6 @@ include_once 'inc/exercise.php';
     <div class="list-group">
       
       <?php 
-	  echo "<pre>";
-	  var_dump($_SESSION);
-	  echo "</pre>";
       
       $mExercises = getExercises();
       
@@ -25,7 +22,7 @@ include_once 'inc/exercise.php';
 				var_dump($row);
 				echo "</pre>";
  
-				$mExercise = getExerciseById($row[0]);
+				$mExercise = getExerciseById($row['ID']);
 			    ?>
 			    <a href="?page=?id=<?php echo $mExercise->mId;?>" class="list-group-item excercise-list">
 			      <h4 class="list-group-item-heading"><?php echo $mExercise->mTitle; ?></h4>

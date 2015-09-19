@@ -6,7 +6,7 @@
  * Time: 11:00
  */
 
-include_once 'db.php';
+require_once APP_ROOT . '/inc/db.php';
 
 //region Functions
 function isLoggedIn() {

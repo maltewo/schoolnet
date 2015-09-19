@@ -18,6 +18,8 @@ function getExercises() {
 		return $lResponse;
 	} else if ($_SESSION["role"] == "3") {
 		return dbQuery("SELECT ID FROM EXERCISES WHERE OWNER='%s'", $_SESSION["username"]);
+	} else if ($_SESSION["role"] == "2") {
+		return dbQuery("SELECT ID FROM EXERCISES");
 	}
 	return null;
 }
@@ -79,7 +81,7 @@ function getAnswerById($pId) {
 
 function getUserId() {
 	$lResponse = dbQuery("SELECT ID FROM USERS WHERE USERNAME='%s'", $_SESSION["username"])->fetch_assoc();
-	return $lResponse[0];
+	return $lResponse;
 }
 
 function getStudentsWithAnswer($pAufgabenId) {
