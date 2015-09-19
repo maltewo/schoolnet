@@ -20,7 +20,7 @@ include_once 'inc/exercise.php';
 	  if ($mExercises == null || $mExercises->num_rows == 0) {
 		echo "Keine verfügbaren Aufgaben!";
 	  } else {
-		  	while ($row == $mExercises->fetch_assoc()) {
+		  	while ($row = $mExercises->fetch_assoc()) {
 				echo "<pre>";
 				var_dump($row);
 				echo "</pre>";
