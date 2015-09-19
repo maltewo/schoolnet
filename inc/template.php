@@ -1,6 +1,7 @@
 <?php
 
 //include "force-ssl.php";
+include "inc/session.php";
 
 ?>
 <!DOCTYPE html>
@@ -14,6 +15,11 @@
 
 	<!-- Bootstrap -->
 	<link href="css/bootstrap.min.css" rel="stylesheet">
+	
+		<?php if($_GET['page'] != "login") {
+			echo '<link href="css/navi.css" rel="stylesheet">';
+		} ?>
+
 	<link href="css/style.css" rel="stylesheet">
 
 	<!--[if lt IE 9]>
@@ -30,6 +36,8 @@
 	?>
 	<body>
 
+	<?php if($_GET['page'] == "login") {
+	?>
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container">
 			<div class="navbar-header">
@@ -58,7 +66,25 @@
 		</div>
 		<!-- /.container -->
 	</nav>
+	<?
+	} else {
+	?> <nav id="header">
+		<div id="logo">
+			<a href="#"><img style="padding: 10px; vertical-align: middle;" src="img/logo.png" alt="" /></a>
+		</div>
+		<!--<a href="logout">logout</a>-->
+		<div id="username">
+			<p style="display: inline"><? echo $_SESSION["username"]; ?></p>
+			<input id="logout" type="submit" value="Logout"/>
+		</div>
+	</nav>
+	<?
+	}
+	?>
+
+<div id="content">
 <?php include 'inc/sites/' . $_GET['page'] . '.php'; ?>
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 </html>
