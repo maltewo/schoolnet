@@ -13,6 +13,7 @@ include_once 'inc/exercise.php';
       <?php 
 	  $mExercises = getExercises();
 
+	  var_dump($mExercises);
   
 	  if ($mExercises == null) {
 		echo "Keine verfügbaren Aufgaben!";
@@ -22,7 +23,6 @@ include_once 'inc/exercise.php';
 	      ?>
 	      <a href="?id=<?php echo $mExercise->mId;?>" class="list-group-item excercise-list">
 	        <h4 class="list-group-item-heading"><?php echo $mExercise->mTitle; ?></h4>
-	        <p class="list-group-item-text"><?php echo $mExercise->mText;?></p>
 	      </a>
 		  <?php 
 		  } 
