@@ -81,7 +81,7 @@ include "account.php";
 		</div>
 		<!--<a href="logout">logout</a>-->
 		<div id="username">
-			<p style="display: inline"><?php echo $_SESSION["username"]; echo " status: ".session_status(); ?></p>
+			<p style="display: inline"><?php echo $_SESSION["username"]; ?></p>
 			<input id="logout" type="submit" value="Logout" onclick="<?php redirectToInline('index.php?page=login&logout=true'); ?>"/>
 		</div>
 	</nav>
