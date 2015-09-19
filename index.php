@@ -7,6 +7,7 @@
  */
 
 session_start();
+define('APP_ROOT', __DIR__);
 
 if(!isset($_GET['page'])){
     header("Location: index.php?page=login");

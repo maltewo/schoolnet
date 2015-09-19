@@ -6,7 +6,7 @@
  * Time: 10:55
  */
 
-require_once "../config/database.php";
+require_once APP_ROOT . "/config/database.php";
 
 class Database {
     public $link;
