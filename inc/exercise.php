@@ -13,7 +13,10 @@ function createExercise($pTitle, $pText, $pGroup) {
 function getExercises() {
 	
 	if ($_SESSION["accountType"] == "student") {
-		return dbQuery("SELECT ID FROM EXERCISES WHERE `GROUP`='%s'", $_SESSION["group"])->fetch_assoc();
+		
+		$lResponse = dbQuery("SELECT ID FROM EXERCISES WHERE `GROUP`='%s'", $_SESSION["group"])->fetch_assoc();
+		var_dump($lResponse);
+		return $lResponse;
 	} else {
 		return dbQuery("SELECT ID FROM EXERCISES WHERE OWNER='%s'", $_SESSION["username"])->fetch_assoc();
 	}
