@@ -15,7 +15,7 @@ if ($isLoggingIn) {
 
     if (notNull($username) && notNull($_POST["password"])) {
         if (login($username, $passwordHash)) {
-            $message = "Angemeldet!";
+            $message = '<div class="alert alert-success" role="alert">Erfolgreich Angemeldet!</div>';
             redirectTo("index.php?page=overview");
             $errorOccurred = false;
         } else {
