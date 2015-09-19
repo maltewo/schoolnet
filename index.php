@@ -6,5 +6,8 @@
  * Time: 11:58
  */
 
-header("Location: login.php");
-exit();
+include 'inc/template.php';
+if(isset($_GET['page'])){
+	//header("Location: index.php?page=login"); 
+}
+?>

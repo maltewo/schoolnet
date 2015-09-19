@@ -1,9 +1,9 @@
-<?
-
-include "force-ssl.php";
-
-function templateStart() {
-	?>
+<?php
+function loadPage($page){
+	$xpage = $page;
+}
+//include "force-ssl.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,8 +22,15 @@ function templateStart() {
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 </head>
+	<?php
+		if($_GET['page'] == "login") {
+			echo '<body background = "img/background.jpg" style = "background-size: cover">';
+		} else {
+			echo '<body>';
+		}
+	?>
+	<body>
 
-	<body background = "img/background.jpg" style = "background-size: cover">
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container">
 			<div class="navbar-header">
@@ -52,14 +59,7 @@ function templateStart() {
 		</div>
 		<!-- /.container -->
 	</nav>
-	<?
-}
-
-function templateStop() {
-	?>
+<?php include 'inc/' . $_GET['page'] . '.php'; ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-</body>
 </html>
-	<?
-}
