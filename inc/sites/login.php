@@ -3,10 +3,11 @@
 include_once "inc/account.php";
 include_once "inc/utils.php";
 
+if ($_GET["logout"] == "true") logout();
 
 if(isset($_POST["login"])){
   $isLoggingIn = $_POST["login"] == "login";
-}else {
+} else {
   $isLoggingIn = false;
   $errorOccurred = false;
 }

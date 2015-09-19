@@ -12,7 +12,7 @@ include_once 'inc/exercise.php';
       
       <?php 
 	  echo "<pre>";
-
+	  var_dump($_SESSION);
 	  echo "</pre>";
       
       $mExercises = getExercises();
