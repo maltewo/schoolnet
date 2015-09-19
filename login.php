@@ -1,5 +1,9 @@
-<body background = "img/background.jpg" style = "background-size: cover">
+<?
+    include_once "inc/template.php";
+    templateStart();
+?>
 
+<body background = "img/background.jpg" style = "background-size: cover">
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
@@ -44,3 +48,6 @@
   </div>
   <div class="col-md-4"></div>
 </div>
+
+<?
+templateStop();
