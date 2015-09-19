@@ -22,8 +22,6 @@ function isValid($username, $passwordhash) {
 }
 function login($username, $passwordHash) {
     if (isValid($username, $passwordHash)) {
-        session_reset();
-        session_regenerate_id(true);
         $userData = dbQuery("SELECT * FROM USERS WHERE USERNAME = '%s'", $username)->fetch_assoc();
 
        
