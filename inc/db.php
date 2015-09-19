@@ -6,10 +6,7 @@
  * Time: 10:55
  */
 
-const DB_HOST = "127.0.0.3";
-const DB_NAME = "db418933_13";
-const DB_USER = "db418933_13";
-const DB_PASS = "___dbpass___";
+require_once APP_ROOT . "/config/database.php";
 
 class Database {
     public $link;

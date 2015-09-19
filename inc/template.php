@@ -1,8 +1,15 @@
 <?php
-	//include "force-ssl.php";
+//include "force-ssl.php";
 
-	include "utils.php";
-	include "account.php";
+include APP_ROOT . "/inc/utils.php";
+include APP_ROOT . "/inc/account.php";
+// class Template {
+// 	public $page;
+
+// 	public function test() {
+// 		return $this->page;
+// 	}
+// }
 
 ?>
 <!DOCTYPE html>
@@ -14,7 +21,9 @@
 	<title>SchoolNet</title>
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	
-		<?php $loadNavigation() ?>
+		<?php if($_GET['page'] != "login") {
+			echo '<link href="css/navi.css" rel="stylesheet">';
+		} ?>
 
 	<link href="css/style.css" rel="stylesheet">
 	<link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon">
@@ -26,7 +35,7 @@
 	<script src="/js/jquery.js" type="text/javascript"></script>
 </head>
 	<?php
-		if($_GET['page'] == "login") {
+		if($_GET['page'] == "login" || $_GET['page'] == "stundenplan") {
 			echo '<body background = "img/background.jpg" style = "background-size: cover">';
 		} else {
 			echo '<body>';
@@ -80,8 +89,15 @@
 	}
 	?>
 
-<div id="content" style="padding: 15px;">
-<?php include 'inc/sites/' . $_GET['page'] . '.php'; ?>
+<div id="content">
+<?php 
+	$template = APP_ROOT . "/inc/sites/" . $_GET['page'] . ".php";
+	if(file_exists($template)) {
+		require_once $template;
+	} else {
+		echo "<h1>Seite nicht gefunden!</h1>";
+	}
+ ?>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
