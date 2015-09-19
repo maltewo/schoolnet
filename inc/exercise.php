@@ -19,6 +19,10 @@ function deleteExercise($exerciseId) {
 	}
 }
 
+function addAnswer($pText) {
+	dbQuery("INSERT INTO ANSWERS (TEXT, OWNER) VALUES (%s, %s)", $pText, $_SESSION["username"]);
+}
+
 function getExerciseById($exerciseId) {
 	$lResponse = dbQuery("SELECT * FROM EXERCISES WHERE ID=%s", $exerciseId)->fetch_assoc();
 	
@@ -40,6 +44,26 @@ function getExerciseById($exerciseId) {
 		
 	}
 	return false;
+}
+
+function getStudentsWithAnswer($pAufgabenId) {
+	
+	$lResponse = dbQuery("SELECT OWNER FROM ANSWERS WHERE EXERCISE=%s", $pAufgabenId)->fetch_assoc();
+	return $lResponse;
+}
+
+class Answer {
+	
+	public $Id;
+	public $Text;
+	public $Owner;
+	
+	function Answer($pId, $pText, $pOwner) {
+		
+		$this->Id = $pId;
+		$this->Text = $pText;
+		$this->Owner = $pOwner;
+	}
 }
 
 class Exercise {
