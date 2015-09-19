@@ -33,7 +33,7 @@
 	<title>SchoolNet</title>
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	
-		<?php $template->loadNavigation() ?>
+		<?php echo $template->loadNavigation() ?>
 
 	<link href="css/style.css" rel="stylesheet">
 	<link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon">
