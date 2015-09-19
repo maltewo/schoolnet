@@ -14,4 +14,4 @@ if(!isset($_GET['page'])){
     exit();
 }
 
-include 'inc/template.php';
+require_once 'inc/template.php';
