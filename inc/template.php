@@ -89,7 +89,7 @@ include "account.php";
 	}
 	?>
 
-<div id="content">
+<div id="content" style="padding: 15px;">
 <?php include 'inc/sites/' . $_GET['page'] . '.php'; ?>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
