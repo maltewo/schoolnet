@@ -38,6 +38,6 @@ function login($username, $passwordHash) {
     }
 }
 function logout() {
-    //session_destroy();
+    session_destroy();
 }
 //endregion
