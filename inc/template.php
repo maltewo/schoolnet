@@ -33,9 +33,9 @@
 			$page = $this->page;
 
 			if($page == "login") {
-				include "/inc/sites/navi_login.php";
+				include APP_ROOT . "/inc/sites/navi_login.php";
 			} else {
-				include "/inc/sites/navi_normal.php";
+				include APP_ROOT . "/inc/sites/navi_normal.php";
 			}
 		}
 	}
@@ -70,7 +70,7 @@
 	<?php $template->setBody(); ?>
 
 	<!--Richtige Navigation auswaelen und laden-->
-	<?php echo include "/inc/sites/navi_login.php"; ?>
+	<?php echo include APP_ROOT . "/inc/sites/navi_login.php"; ?>
 
 
 <div id="content">
