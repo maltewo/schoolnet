@@ -13,7 +13,7 @@ include_once 'inc/exercise.php';
       <?php 
 	  $mExercises = getExercises();
 	  ?>
-	  <pre><?php echo $_SESSION["username"];?></pre>
+	  <pre><?php echo $_SESSION["account"];?></pre>
 	  <?php 
 	  if ($mExercises == false) {
 		echo "Keine verfügbaren Aufgaben!";
