@@ -14,6 +14,7 @@ function templateStart() {
 	<title>SchoolNet</title>
 
 	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/style.css">
 
