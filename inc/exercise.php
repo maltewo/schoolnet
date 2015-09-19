@@ -70,9 +70,9 @@ function getExerciseById($exerciseId) {
 }
 
 function getAnswerById($pId) {
-	echo $pId;
-	$lResponse = dbQuery("SELECT * FROM ANSWERS WHERE ID='%s'", $pId)->fetch_assoc();
-	echo "<pre>".var_dump($mAnswer)."</pre>";
+	echo "SELECT * FROM ANSWERS WHERE ID=".$pId;
+	$lResponse = dbQuery("SELECT * FROM ANSWERS WHERE ID=1")->fetch_assoc();
+	echo "<pre>".var_dump($lResponse)."</pre>";
 	if (getUserId() == $lResponse["OWNER"]) {
 		return new Answer($pId, $lResponse["TEXT"], $lResponse["OWNER"]);
 	}
