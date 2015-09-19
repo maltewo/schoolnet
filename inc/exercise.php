@@ -15,11 +15,11 @@ function getExercises() {
 	if ($_SESSION["accountType"] == "student") {
 		
 		$lResponse = dbQuery("SELECT ID FROM EXERCISES WHERE `GROUP`='%s'", $_SESSION["group"])->fetch_assoc();
-		echo "SELECT ID FROM EXERCISES WHERE `GROUP`='%s'";
 		return $lResponse;
-	} else {
+	} else if ($_SESSION["accountType"] == "teacher") {
 		return dbQuery("SELECT ID FROM EXERCISES WHERE OWNER='%s'", $_SESSION["username"])->fetch_assoc();
 	}
+	return null;
 }
 
 function getAnswersByExerciseId($pId) {
