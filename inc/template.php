@@ -70,7 +70,7 @@
 	<?php echo $template->setBody(); ?>
 
 	<!--Richtige Navigation auswaelen und laden-->
-	<?php echo $template->setNavi; ?>
+	<?php echo $template->setNavi(); ?>
 
 
 <div id="content">
