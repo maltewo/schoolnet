@@ -13,6 +13,8 @@ include_once 'inc/exercise.php';
       <?php 
 	  $mExercises = getExercises();
 
+	  var_dump($_SESSION);
+	  
 	  if ($mExercises == null) {
 		echo "Keine verfügbaren Aufgaben!";
 	  } else {
