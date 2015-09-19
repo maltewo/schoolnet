@@ -17,6 +17,7 @@ $mExercise = getExerciseById($_GET["id"]);
 	$mAnswers = getAnswersByExerciseId($_GET["id"]);
 	if ($mAnswers != null) {
 		while ($mAnswerId = $mAnswers->fetch_assoc()) {
+			echo $mAnswerId["ID"];
 			$mAnswer = getAnswerById($mAnswerId["ID"]);
 	?>
 		<div class="loesung">
