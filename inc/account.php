@@ -10,7 +10,7 @@ require_once APP_ROOT . '/inc/db.php';
 
 //region Functions
 function isValid($username, $passwordhash) {
-    if (isset($username) && isset($passwordhash)) {
+    if ((isset($username) && is_string($username)) && (isset($passwordhash) && is_string($passwordHash))) {
         $res = dbQuery("select * from USERS where USERNAME = '%s' and PASSWORD = '%s' limit 1", $username, $passwordhash);
         return $res->num_rows == 1;
     } else {
@@ -18,7 +18,9 @@ function isValid($username, $passwordhash) {
     }
 }
 function isLoggedIn() {
-    return isValid($_SESSION["username"], $_SESSION["passwordHash"]);
+	$username = isset($_SESSION["username"]) ? $_SESSION['username'] : false;
+	$password = isset($_SESSION["passwordHash"]) ? $_SESSION['passwordHash'] : false;
+    return isValid($username, $password);
 }
 function login($username, $passwordHash) {
     if (isValid($username, $passwordHash)) {
