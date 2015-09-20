@@ -4,21 +4,21 @@
 	width: 100%;
 	margin: 0px;
 	padding: 3px;
-	height: 100px;
+	height: 120px;
 	position: fixed;
 }
 body {
 	margin: 0px;
 }
-#logout {
+.button {
 	padding: auto;
 	text-align: center;
 	height: 30px;
-	width: 100px;
 	font-size: 20px;
 	color: #fefefe;
 	background-color: #0e2d2e;
 	border: none;
+	vertical-align: middle;
 	/*position: relative;*/
 	/*top: 50%;*/
 	/*transform: translateY(-50%);*/
@@ -31,7 +31,7 @@ body {
 	max-height: 100px;
 }
 #username {
-	margin-top: 35px;
+	margin-top: 55px;
 	color: #fefefe;
 	letter-spacing: 2px;
 	font-family: sans-serif;

@@ -18,10 +18,10 @@
 		public function setBody() {
 			$page = $this->page;
 
-			if($page == "login" || $page == "stundenplan" || true) {
-				return '<body background = "img/background.jpg" style = "background-size: cover">';
+			if($page == "login" || $page == "stundenplan") {
+				return '<body background = "img/background.jpg" style = "background-size: cover;">';
 			} else {
-				return '<body>';
+				return '<body background = "img/background_light.jpg" style = "background-size: cover;">';
 			}
 		}
 
@@ -80,7 +80,7 @@
 	<?php echo $template->setBody(); ?>
 
 	<!--Richtige Navigation auswaehlen und laden-->
-	<?php echo $template->setNavi(); ?>
+	<?php $template->setNavi(); ?>
 
 <div id="content">
 <?php $template->loadContent(); ?>
