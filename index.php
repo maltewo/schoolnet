@@ -16,6 +16,7 @@ if(!isset($_GET['page']) || (!isLoggedIn() && $_GET['page'] != "login")) {
     exit();
 } else if (isLoggedIn() && $_GET["page"] == "login") {
 	header("Location: index.php?page=overview");
+    exit();
 }
 
 require_once 'inc/template.php';
