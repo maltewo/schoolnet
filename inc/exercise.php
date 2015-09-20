@@ -46,7 +46,7 @@ function deleteExercise($exerciseId) {
 	$lResponse = dbQuery("SELECT OWNER FROM EXERCISES WHERE ID=%s", $exerciseId)->fetch_assoc();
 	$lOwner = $lResponse["OWNER"];
 	
-	if (getUserId() == $lOwner) {
+	if (getUserId() == $lOwner || $_SESSION["role"] == 2) {
 		dbQuery(cDeleteExercise, $exerciseId);
 	}
 }
@@ -61,7 +61,7 @@ function updateAnswer($pText, $pExercise) {
 }
 
 function getExerciseById($exerciseId) {
-	$lResponse = dbQuery("SELECT * FROM EXERCISES WHERE ID='%s'", $exerciseId)->fetch_assoc();
+	$lResponse = dbQuery("SELECT * FROM EXERCISES WHERE ID=%s", $exerciseId)->fetch_assoc();
 	
 	$lId = $exerciseId;
 	$lTitle = $lResponse["TITLE"];
