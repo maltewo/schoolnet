@@ -31,7 +31,6 @@ $mExercise = getExerciseById($_GET["id"]);
 				<textarea class="form-control" rows="10" id="answer" name="answer">
 				<?
 				$mAnswer = getAnswersByExerciseId($_GET["id"]);
-				var_dump($mAnswer);
 				$mAnswerExists = false;
 				if ($mAnswerId != false) { 
 					$mAnswerId = $mAnswer->fetch_assoc();
