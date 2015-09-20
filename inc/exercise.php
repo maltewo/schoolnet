@@ -27,7 +27,7 @@ function getExercises() {
 
 function getGroups() {
 	
-	return dbQuery("SELECT * FROM GROUPS");
+	return dbQuery("SELECT * FROM GROUPS ORDER BY `GROUP`");
 }
 
 function getAnswersByExerciseId($pId) {
