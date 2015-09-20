@@ -71,7 +71,7 @@
 
 	<!--Navigation laden-->
 	<?php 
-	checkLogin();
+	$template->checkLogin();
 	echo $template->loadNavigation() ?>
 
 	<!--[if lt IE 9]>
