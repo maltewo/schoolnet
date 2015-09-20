@@ -52,7 +52,6 @@ function deleteExercise($exerciseId) {
 }
 
 function addAnswer($pText, $pExercise) {
-	echo "INSERT INTO ANSWERS (TEXT, OWNER, EXERCISE, GROUP) VALUES ('".$pText."', ".getUserId().", ".$pExercise.", ".$_SESSION["group"];
 	dbQuery("INSERT INTO ANSWERS (`TEXT`, OWNER, EXERCISE, `GROUP`) VALUES ('%s', %s, %s, %s)", $pText, getUserId(), $pExercise, $_SESSION["group"]);
 }
 
