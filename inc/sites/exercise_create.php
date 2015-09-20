@@ -1,6 +1,9 @@
 <?php 
 include_once 'inc/exercise.php';
 include_once 'inc/utils.php';
+
+echo "<pre>".var_dump($_POST)."</pre>";
+
 if ($_SESSION["role"] == 4) {
 	redirectTo("index.php?page=overview");
 } else {
