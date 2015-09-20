@@ -3,7 +3,7 @@
 include_once 'db.php';
 
 const cInsertExercise = "INSERT INTO EXERCISES (TITLE, TEXT, OWNER, `GROUP`) VALUES ('%s', '%s', '%s', '%s')";
-const cDeleteExercise = "DELETE * FROM EXERCISES WHERE ID=%s";
+const cDeleteExercise = "DELETE FROM EXERCISES WHERE ID=%s";
 
 function createExercise($pTitle, $pText, $pGroup) {
 	if ($_SESSION["role"] == 2 || $_SESSION["role"] == 3) {
