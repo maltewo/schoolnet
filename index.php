@@ -11,6 +11,8 @@ define('APP_ROOT', dirname(__FILE__));
 
 require_once 'inc/account.php';
 
+if (isset($_GET["logout"]) && $_GET["logout"] === "true") logout();
+
 if(!isset($_GET['page']) || (!isLoggedIn() && $_GET['page'] != "login")) {
     header("Location: index.php?page=login");
     exit();

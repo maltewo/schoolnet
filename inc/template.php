@@ -74,10 +74,10 @@
 
 </head>
 
-	<!--BodyElement auswaelen und laden-->
+	<!--BodyElement auswaehlen und laden-->
 	<?php echo $template->setBody(); ?>
 
-	<!--Richtige Navigation auswaelen und laden-->
+	<!--Richtige Navigation auswaehlen und laden-->
 	<?php echo $template->setNavi(); ?>
 
 

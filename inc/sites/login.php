@@ -3,8 +3,6 @@
 include_once "inc/account.php";
 include_once "inc/utils.php";
 
-if (isset($_GET["logout"]) && $_GET["logout"] === "true") logout();
-
 if(isset($_POST["login"])){
   $isLoggingIn = $_POST["login"] == "login";
 } else {
