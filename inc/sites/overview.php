@@ -28,7 +28,8 @@ require_once APP_ROOT . '/inc/exercise.php';
 			}
 	  }?>
       
-      <button type="button" href="?page=exercise_create" class="btn btn-default glyphicon glyphicon-plus pull-right" ></button>
+      <a type="button" href="?page=exercise_create" class="btn btn-default glyphicon glyphicon-plus pull-right" ></a>
+      <a class="hidden" ></a>
     </div>
   </div>
   <div class="col-md-3"></div>
