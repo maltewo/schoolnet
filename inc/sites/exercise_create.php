@@ -43,7 +43,7 @@ if (isset($_POST["title"])) {
 	<div class="row">
 	<div class="col-md-6">
 		<label for="group">Gruppe:</label>
-		<select id="group" class="form-control">
+		<select id="group" name="group" class="form-control">
 			<?php 
 			$mGroups = getGroups();
 			while ($mGroup = $mGroups->fetch_assoc()) {
