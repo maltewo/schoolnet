@@ -35,6 +35,10 @@
 			}
 		}
 
+		public function loadNavigation() {
+			include APP_ROOT . "/inc/sites/navi_login.php";
+		}
+
 		public function loadContent(){
 			$page = $this->page;
 
@@ -80,7 +84,8 @@
 	<?php echo $template->setBody(); ?>
 
 	<!--Richtige Navigation auswaehlen und laden-->
-	<?php $template->setNavi(); ?>
+	<?php $template->loadNavigation(); ?>
+
 
 <div id="content">
 <?php $template->loadContent(); ?>
