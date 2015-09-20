@@ -1,7 +1,10 @@
 <?php 
 include_once 'inc/exercise.php';
-
-if (array_key_exists($_POST, "title")) {
+if ($_SESSION["role"] == 4) {
+	header("Location: index.php");
+	exit;
+}
+if (isset($_POST["title"])) {
 	createExercise($_POST["title"], $_POST["question"], $_POST["group-dropdown"]);
 	?>
 	<h5>Erstellen erfolgreich</h5>
