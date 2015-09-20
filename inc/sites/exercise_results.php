@@ -43,7 +43,7 @@ $mExercise = getExerciseById($_GET["id"]);
 				}
 				?></textarea>
 				<button type="submit" class="btn btn-default pull-right">Speichern</button>
-				<input type="text" class="hidden" id="action" value="<?php if ($mAnswerExists) { echo "edit"; } else { echo "new"; }?>"/>
+				<input type="text" class="hidden" id="action" name="action" value="<?php if ($mAnswerExists) { echo "edit"; } else { echo "new"; }?>"/>
 			</div>
 		</form>
 	<?php 
