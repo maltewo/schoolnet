@@ -18,7 +18,7 @@
 		public function setBody() {
 			$page = $this->page;
 
-			if($page == "login" || $page == "stundenplan") {
+			if($page == "login" || $page == "stundenplan" || true) {
 				return '<body background = "img/background.jpg" style = "background-size: cover">';
 			} else {
 				return '<body>';
