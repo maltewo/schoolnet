@@ -48,7 +48,7 @@ if (isset($_POST["title"])) {
 	<ul class="dropdown-menu" aria-labelledby="dropdownMenu1" id="group-dropdown">
 		<?php 
 		$mGroups = getGroups();
-		
+		var_dump($mGroups);
 		while ($mGroup = $mGroups->fetch_assoc()) {
 			?>
 			<li><a href="#" data-id="<?php echo $mGroup["ID"]?>" value="<?php echo $mGroup["ID"]?>"><?php echo $mGroup["NAME"]?></a></li>
