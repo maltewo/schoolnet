@@ -38,6 +38,7 @@
 		public function loadContent(){
 			$page = $this->page;
 
+<<<<<<< HEAD
 			return "test";
 
 			// $template = APP_ROOT . "/inc/sites/" . $_GET['page'] . ".php";
@@ -46,6 +47,14 @@
 			// } else {
 			// 		echo "<h1>Seite nicht gefunden!</h1>";
 			// }
+=======
+			$template = APP_ROOT . "/inc/sites/" . $_GET['page'] . ".php";
+			if(file_exists($template)) {
+				require $template;
+			} else {
+					echo "<h1>Seite nicht gefunden!</h1>";
+			}
+>>>>>>> 1eb1bee75d4d97e0f2fc954bdcd2f198f31df5ae
 		}
 	}
 
