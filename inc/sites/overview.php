@@ -27,8 +27,9 @@ require_once APP_ROOT . '/inc/exercise.php';
 				<?php 
 			}
 	  }?>
-      
+      <?php if ($_SESSION["role"] == 2 || $_SESSION["role"] == 3) {?>
       <a type="button" href="?page=exercise_create" class="btn btn-default glyphicon glyphicon-plus pull-right" ></a>
+      <?php }?>
     </div>
   </div>
   <div class="col-md-3"></div>
