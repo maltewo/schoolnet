@@ -3,8 +3,10 @@ include_once('inc/exercise.php');
 
 if (isset($_POST["action"])) {
 	if ($_POST["action"] == "new") {
+		echo "Neue Antwort";
 		addAnswer($_POST["answer"], $_GET["id"]);
 	} else {
+		echo "Antwort bearbeiten";
 		updateAnswer($_POST["answer"], $_GET["id"]);
 	}
 }
