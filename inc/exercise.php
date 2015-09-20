@@ -61,7 +61,7 @@ function updateAnswer($pText, $pExercise) {
 }
 
 function getExerciseById($exerciseId) {
-	$lResponse = dbQuery("SELECT * FROM EXERCISES WHERE ID='%s'", $exerciseId)->fetch_assoc();
+	$lResponse = dbQuery("SELECT * FROM EXERCISES WHERE ID=%s", $exerciseId)->fetch_assoc();
 	
 	$lId = $exerciseId;
 	$lTitle = $lResponse["TITLE"];
