@@ -39,13 +39,7 @@ if (isset($_POST["title"])) {
 	</div>
 	<div class="col-md-6">
 		<div class="dropdown">
-		<label for="dropdownMenu1" style="display: block;">Titel:</label>
-		<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-		<input type="hidden" name="group" value="" id="group"></input>
-		<span id="group-text">Gruppe/Kurs</span>
-		<span class="caret"></span>
-	</button>
-	<select class="dropdown-menu" aria-labelledby="dropdownMenu1" id="group-dropdown">
+		<select class="dropdown-menu" aria-labelledby="dropdownMenu1" id="group-dropdown">
 		<?php 
 		$mGroups = getGroups();
 		while ($mGroup = $mGroups->fetch_assoc()) {
