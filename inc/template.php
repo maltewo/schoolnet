@@ -38,9 +38,8 @@
 		public function loadContent(){
 			$page = $this->page;
 
-			return "test";
+			$template = APP_ROOT . "/inc/sites/" . $page . ".php";
 
-			$template = APP_ROOT . "/inc/sites/" . $_GET['page'] . ".php";
 			if(file_exists($template)) {
 				require $template;
 			} else {
