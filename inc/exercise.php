@@ -51,8 +51,13 @@ function deleteExercise($exerciseId) {
 	}
 }
 
-function addAnswer($pText) {
-	dbQuery("INSERT INTO ANSWERS (TEXT, OWNER) VALUES ('%s', '%s')", $pText, $_SESSION["username"]);
+function addAnswer($pText, $pExercise) {
+	dbQuery("INSERT INTO ANSWERS (TEXT, OWNER, EXERCISE, GROUP) VALUES ('%s', '%s', '%s', '%s')", $pText, $_SESSION["username"], $pExercise, $_SESSION["group"]);
+}
+
+function updateAnswer($pText, $pExercise) {
+	
+	dbQuery("UPDATE ANSWERS SET TEXT='%s' WHERE EXERCISE='%s' AND OWNER='%s'", $pText, $pExercise, getUserId());
 }
 
 function getExerciseById($exerciseId) {
