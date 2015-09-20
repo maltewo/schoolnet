@@ -2516,6 +2516,7 @@ function addCombinator( matcher, combinator, base ) {
 								return true;
 							}
 						}
+
 					}
 				}
 			}

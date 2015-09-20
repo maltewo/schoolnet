@@ -9,7 +9,7 @@
 session_start();
 define('APP_ROOT', dirname(__FILE__));
 
-include 'inc/account.php';
+require_once 'inc/account.php';
 
 if(!isset($_GET['page']) || (!isLoggedIn() && $_GET['page'] != "login")) {
     header("Location: index.php?page=login");

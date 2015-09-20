@@ -10,7 +10,7 @@
 		public function loadNavigation() {
 			$page = $this->page;
 
-			if($page != "login") {
+			if($page == "login") {
 				return '<link href="css/navi.css" rel="stylesheet">';
 			}
 		}
