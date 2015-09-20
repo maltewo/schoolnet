@@ -6,13 +6,15 @@
  * Time: 22:23
  */
 
+include_once 'inc/account.php';
+
 session_start();
 define('APP_ROOT', dirname(__FILE__));
 
-if(!isset($_GET['page']) || (!isset($_SESSION['username']) && $_GET['page'] != "login")) {
+if(!isset($_GET['page']) || (!isLoggedIn() && $_GET['page'] != "login")) {
     header("Location: index.php?page=login");
     exit();
-} else if (isset($_SESSION["username"]) && $_GET["page"] == "login") {
+} else if (isLoggedIn() && $_GET["page"] == "login") {
 	header("Location: index.php?page=overview");
 }
 
