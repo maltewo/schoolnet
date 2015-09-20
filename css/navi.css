@@ -4,7 +4,7 @@
 	width: 100%;
 	margin: 0px;
 	padding: 3px;
-	height: 100px;
+	height: 120px;
 	position: fixed;
 }
 body {
@@ -31,7 +31,7 @@ body {
 	max-height: 100px;
 }
 #username {
-	margin-top: 35px;
+	margin-top: 55px;
 	color: #fefefe;
 	letter-spacing: 2px;
 	font-family: sans-serif;
