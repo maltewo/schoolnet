@@ -38,9 +38,10 @@
 		public function loadContent(){
 			$page = $this->page;
 
-			$template = APP_ROOT . "/inc/sites/" . $_GET['page'] . ".php";
+			$template = APP_ROOT . "/inc/sites/" . $page . ".php";
+
 			if(file_exists($template)) {
-				require_once $template;
+				require $template;
 			} else {
 					echo "<h1>Seite nicht gefunden!</h1>";
 			}
@@ -59,6 +60,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>SchoolNet</title>
 	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/navi.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
 	<link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon">
 	<script src="/js/jquery.js" type="text/javascript"></script>	
@@ -74,12 +76,11 @@
 
 </head>
 
-	<!--BodyElement auswaelen und laden-->
+	<!--BodyElement auswaehlen und laden-->
 	<?php echo $template->setBody(); ?>
 
-	<!--Richtige Navigation auswaelen und laden-->
+	<!--Richtige Navigation auswaehlen und laden-->
 	<?php echo $template->setNavi(); ?>
-
 
 <div id="content">
 <?php $template->loadContent(); ?>

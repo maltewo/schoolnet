@@ -31,6 +31,7 @@ body {
 	max-height: 100px;
 }
 #username {
+	margin-top: 35px;
 	color: #fefefe;
 	letter-spacing: 2px;
 	font-family: sans-serif;
