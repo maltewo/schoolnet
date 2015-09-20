@@ -19,7 +19,7 @@
 			</table>
 			<br>
 			<table class="table table-striped table-bordered table-condensed table-responsive">
-			<tr class='list'><th class="list" align="center"><b>Klasse(n)</b></th><th class="list" align="center">Stunde</th><th class="list" align="center">Fach</th><th class="list" align="center">bei</th><th class="list" align="center">Raum</th><th class="list" align="center">Bemerkungen</th><th class="list" align="center">Art</th></tr>
+			<tr class='list'><th class="list" align="center"><b>Klasse(n)</b></th><th class="list" align="center">Stunde</th><th class="list" align="center">Fach</th><th class="list" align="center">Lehrkraft</th><th class="list" align="center">Raum</th><th class="list" align="center">Bemerkungen</th><th class="list" align="center">Art</th></tr>
 			<tr class='list odd'><td class="list" align="center"><b>5d</b></td><td class="list" align="center">3</td><td class="list" align="center">Ma</td><td class="list" align="center">Hem</td><td class="list" align="center"><s>150</s>?033</td><td class="list">&nbsp;</td><td class="list" align="center">Raumänderung</td></tr>
 			<tr class='list even'><td class="list" align="center"><b>5d</b></td><td class="list" align="center">5 - 6</td><td class="list" align="center">D</td><td class="list" align="center">Do</td><td class="list" align="center"><s>150</s>?014</td><td class="list">&nbsp;</td><td class="list" align="center">Raumänderung</td></tr>
 			<tr class='list odd'><td class="list" align="center"><b>7c</b></td><td class="list" align="center">3</td><td class="list" align="center"><s>Ek</s>?Ma</td><td class="list" align="center"><s>Hor</s>?Bm</td><td class="list" align="center">108</td><td class="list">&nbsp;</td><td class="list" align="center">Vertretung</td></tr>
