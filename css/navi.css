@@ -41,6 +41,7 @@ body {
 	top: 50%;
 	transform: translateY(-50%);
 	float: right;
+	width: 50%;
 
 }
 #content {
