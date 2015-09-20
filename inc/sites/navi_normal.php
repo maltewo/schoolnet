@@ -6,7 +6,7 @@
 
 		<div id="username">
 			<p style="display: inline"><?php echo $_SESSION["username"]; ?></p>
-			<a href="index.php?page=stundenplan" class="navbutton">Vertretungsplan</a>
-			<a href="index.php?page=login&logout=true" class="navbutton">Abmelden</a>
+			<a href="index.php?page=stundenplan" class="btn btn-primary">Vertretungsplan</a>
+			<a href="index.php?page=login&logout=true" class="btn btn-primary">Abmelden</a>
 		</div>
 	</nav>
