@@ -15,8 +15,7 @@ require_once APP_ROOT . '/inc/exercise.php';
 	  if ($mExercises == null || $mExercises->num_rows == 0) {
 		echo "Keine verfügbaren Aufgaben!";
 	  } else {
-		  	while ($row = $mExercises->fetch_assoc()) {
- 
+		  	while ($row = $mExercises->fetch_array(MYSQLI_ASSOC)) {
 				$mExercise = getExerciseById($row['ID']);
 			    ?>
 			    <a href="?page=exercise_results&amp;id=<?php echo $mExercise->mId;?>" class="list-group-item excercise-list">
