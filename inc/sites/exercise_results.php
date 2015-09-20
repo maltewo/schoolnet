@@ -23,7 +23,9 @@ $mExercise = getExerciseById($_GET["id"]);
 				<textarea class="form-control" rows="10" id="answer" name="answer">
 		<?
 		$mAnswer = getAnswersByExerciseId($_GET["id"]);
-		$mAnswerId = $mAnswer->fetch_assoc();
+		if ($mAnswerId != false) { 
+			$mAnswerId = $mAnswer->fetch_assoc();
+		}
 		if (isset($mAnswerId["ID"])) {
 			$mAnswerText = getAnswerById($mAnswerId["ID"]);
 			echo $mAnswerText["TEXT"];
