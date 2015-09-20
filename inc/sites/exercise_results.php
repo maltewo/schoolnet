@@ -21,15 +21,16 @@ $mExercise = getExerciseById($_GET["id"]);
 			<div class="form-group">
 				<label for="answer">Antwort:</label>
 				<textarea class="form-control" rows="10" id="answer" name="answer">
-		<?
-		$mAnswer = getAnswersByExerciseId($_GET["id"]);
-		if ($mAnswerId != false) { 
-			$mAnswerId = $mAnswer->fetch_assoc();
-		}
-		if (isset($mAnswerId["ID"])) {
-			$mAnswerText = getAnswerById($mAnswerId["ID"]);
-			echo $mAnswerText["TEXT"];
-		}
+				<?
+				$mAnswer = getAnswersByExerciseId($_GET["id"]);
+				var_dump($mAnswer);
+				if ($mAnswerId != false) { 
+					$mAnswerId = $mAnswer->fetch_assoc();
+				}
+				if (isset($mAnswerId["ID"])) {
+					$mAnswerText = getAnswerById($mAnswerId["ID"]);
+					echo $mAnswerText["TEXT"];
+				}
 	?>			</textarea>
 			</div>
 		</form>
