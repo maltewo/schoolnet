@@ -1,8 +1,8 @@
 <?php 
 include_once 'inc/exercise.php';
 if ($_SESSION["role"] == 4) {
-	header("Location: index.php");
-	exit;
+	header("Location: index.php?page=overview");
+	exit();
 }
 if (isset($_POST["title"])) {
 	createExercise($_POST["title"], $_POST["question"], $_POST["group-dropdown"]);
