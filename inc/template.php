@@ -7,6 +7,12 @@
 	Class Template {
 		public $page;
 
+		public function checkLogin() {
+			if (!array_key_exists($_SESSION, "username")) {
+				header("Location: schoolnet");
+			}
+		}
+		
 		public function loadNavigation() {
 			$page = $this->page;
 
@@ -64,7 +70,9 @@
 	<script src="/js/jquery.js" type="text/javascript"></script>	
 
 	<!--Navigation laden-->
-	<?php echo $template->loadNavigation() ?>
+	<?php 
+	checkLogin();
+	echo $template->loadNavigation() ?>
 
 	<!--[if lt IE 9]>
 	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
