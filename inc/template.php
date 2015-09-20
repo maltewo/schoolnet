@@ -76,11 +76,10 @@
 </head>
 
 	<!--BodyElement auswaehlen und laden-->
-	<?php echo $template->setBody(); ?>
+	<?php $template->setBody(); ?>
 
 	<!--Richtige Navigation auswaehlen und laden-->
-	<?php echo $template->setNavi(); ?>
-
+	<?php $template->setNavi(); ?>
 
 <div id="content">
 <?php $template->loadContent(); ?>
