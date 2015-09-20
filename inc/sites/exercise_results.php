@@ -39,7 +39,7 @@ $mExercise = getExerciseById($_GET["id"]);
 				}
 				if (isset($mAnswerId["ID"])) {
 					$mAnswerText = getAnswerById($mAnswerId["ID"]);
-					echo $mAnswerText["TEXT"];
+					echo htmlspecialchars($mAnswerText["TEXT"]);
 				}
 				?></textarea>
 				<button type="submit" class="btn btn-default pull-right">Speichern</button>
@@ -55,7 +55,7 @@ $mExercise = getExerciseById($_GET["id"]);
 		?>
 			<div class="loesung">
 				<h3><?php echo getUserById($mAnswer->mOwner);?></h3>
-				<p><?php echo $mAnswer->mText;?></p>
+				<p><?php echo htmlspecialchars($mAnswer->mText);?></p>
 			</div>
 		<?php }
 		} 

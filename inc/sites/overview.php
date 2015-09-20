@@ -22,7 +22,7 @@ require_once APP_ROOT . '/inc/exercise.php';
                   ?>
                   <a href="?page=exercise_results&amp;id=<?php echo $mExercise->mId; ?>"
                      class="list-group-item excercise-list">
-                    <h4 class="list-group-item-heading"><?php echo $mExercise->mTitle; ?></h4>
+                    <h4 class="list-group-item-heading"><?php echo htmlspecialchars($mExercise->mTitle); ?></h4>
                   </a>
                   <?php
                 }
