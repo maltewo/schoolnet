@@ -1,9 +1,7 @@
 <?php 
 include_once('inc/exercise.php');
-echo $_POST["action"];
 if (array_key_exists("action", $_POST)) {
 	if ($_POST["action"] == "new") {
-		echo "Neue Antwort";
 		addAnswer($_POST["answer"], $_GET["id"]);
 	} else {
 		echo "Antwort bearbeiten";
