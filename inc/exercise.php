@@ -37,7 +37,7 @@ function getAnswersByExerciseId($pId) {
 		
 	} else if ($_SESSION["role"] == 4) {
 		
-		return dbQuery("SELECT ID FROM ANSWERS WHERE EXERCISE = '%s' AND OWNER= = '%s'", $pId, getUserId());
+		return dbQuery("SELECT ID FROM ANSWERS WHERE EXERCISE = '%s' AND OWNER = '%s'", $pId, getUserId());
 	}
 	return null;
 }
