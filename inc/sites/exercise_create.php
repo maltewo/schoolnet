@@ -35,7 +35,7 @@ if (isset($_POST["title"])) {
 	
 	<div class="row">
 	<div class="col-md-6">
-		<div class="input-group col-md-12">
+		<div class="input-group">
 		<label for="title">Frist:</label>
 		<input id="title" type="date" class="form-control" aria-describedby="basic-addon1" name="timelimit">
 	</div>
