@@ -42,6 +42,7 @@ if (isset($_POST["title"])) {
 	</div>
 	<div class="row">
 	<div class="col-md-6">
+		<label for="group">Gruppe:</label>
 		<select id="group" class="form-control">
 			<?php 
 			$mGroups = getGroups();
