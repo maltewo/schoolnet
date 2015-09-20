@@ -19,9 +19,9 @@ $mExercise = getExerciseById($_GET["id"]);
 	
   </div>
   <div class="col-md-6">
-	<h1><?php echo $mExercise->mTitle;?></h1>
+	<h1><?php echo htmlspecialchars($mExercise->mTitle);?></h1>
 	<h2>Aufgabenstellung:</h2>
-	<p><?php echo $mExercise->mText;?></p>
+	<p><?php echo htmlspecialchars($mExercise->mText);?></p>
 	<h2>Lösungen:</h2>
 	<?php 
 	if ($_SESSION["role"] == 4) {
