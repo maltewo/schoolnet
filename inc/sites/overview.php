@@ -27,8 +27,8 @@ if (isset($_GET["delId"])) {
                   ?>
                   <a href="?page=exercise_results&amp;id=<?php echo $mExercise->mId; ?>"
                      class="list-group-item excercise-list">
+                    <a href="?page=overview&delId=<?php echo $mExercise->mId?>" class="glyphicon glyphicon-remove"></a>
                     <span style="font-size: 18px;"><?php echo htmlspecialchars($mExercise->mTitle); ?></span>
-                    <a style="text-align: right;" href="?page=overview&delId=<?php echo $mExercise->mId?>" class="glyphicon glyphicon-remove pull-right"></a>
                   </a>
                   <?php
                 }
