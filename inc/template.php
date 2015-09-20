@@ -6,12 +6,6 @@
 
 	Class Template {
 		public $page;
-
-		public function checkLogin() {
-			if (!array_key_exists($_SESSION, "username")) {
-				header("Location: schoolnet");
-			}
-		}
 		
 		public function loadNavigation() {
 			$page = $this->page;
@@ -71,7 +65,6 @@
 
 	<!--Navigation laden-->
 	<?php 
-	$template->checkLogin();
 	echo $template->loadNavigation() ?>
 
 	<!--[if lt IE 9]>
