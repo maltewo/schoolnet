@@ -1,3 +1,14 @@
+<?php 
+include_once 'inc/exercise.php';
+
+if (array_key_exists($_POST["title"])) {
+	createExercise($_POST["title"], $_POST["question"], $_POST["group-dropdown"]);
+	?>
+	<h5>Erstellen erfolgreich</h5>
+	<?php 
+}
+?>
+
 <script type="text/javascript" src="/js/exercise.js"></script>
 
 <div class="main-container">
@@ -32,17 +43,22 @@
 		<span class="caret"></span>
 	</button>
 	<ul class="dropdown-menu" aria-labelledby="dropdownMenu1" id="group-dropdown">
-		<li><a href="#" data-id="klasse-9C">Klasse 9C</a></li>
-		<li><a href="#" data-id="klasse-8A">Klasse 8A</a></li>
-		<li><a href="#" data-id="it-kurs">IT-Kurs</a></li>
-		<li><a href="#" data-id="klasse-10D">Klasse 10D</a></li>
+		<?php 
+		$mGroups = getGroups();
+		
+		while ($mGroup = $mGroups->fetch_assoc()) {
+			?>
+			<li><a href="#" data-id="<?php echo $mGroup["ID"]?>" value="<?php echo $mGroup["ID"]?>"><?php echo $mGroup["NAME"]?></a></li>
+			<?php 
+		}
+		?>
 	</ul>
 	</div>
 	</div>
 	</div>
 		<div class="row" style="margin-top: 20px;">
 			<div class="col-md-12">
-				<p class="center"><input type="submit" class="btn btn-success btn-lg btn-block" value="Senden"></p>
+				<p class="center"><input id="createNewExercise" type="submit" class="btn btn-success btn-lg btn-block" value="Senden"></p>
 			</div>
 		</div>
   </div>

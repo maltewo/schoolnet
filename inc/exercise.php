@@ -6,8 +6,9 @@ const cInsertExercise = "INSERT INTO EXERCISES (TITLE, TEXT, OWNER, `GROUP`) VAL
 const cDeleteExercise = "DELETE * FROM EXERCISES WHERE ID='%s'";
 
 function createExercise($pTitle, $pText, $pGroup) {
-	
-	dbQuery(cInsertExercise, $pTitle, $pText, getUserId(), $pGroup);
+	if ($_SESSION["role"] == 2 || $_SESSION["role"] == 3) {
+		dbQuery(cInsertExercise, $pTitle, $pText, getUserId(), $pGroup);
+	}
 }
 
 function getExercises() {
@@ -22,6 +23,11 @@ function getExercises() {
 		return dbQuery("SELECT ID FROM EXERCISES");
 	}
 	return null;
+}
+
+function getGroups() {
+	
+	return dbQuery("SELECT * FROM GROUPS");
 }
 
 function getAnswersByExerciseId($pId) {
