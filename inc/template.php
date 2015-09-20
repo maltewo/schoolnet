@@ -61,6 +61,7 @@
 	<title>SchoolNet</title>
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/navi.css" rel="stylesheet">
+	<link href="css/mobile.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
 	<link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon">
 	<script src="/js/jquery.js" type="text/javascript"></script>	
