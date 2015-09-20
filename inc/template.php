@@ -36,6 +36,7 @@
 		}
 
 		public function loadNavigation() {
+			//test
 			include APP_ROOT . "/inc/sites/navi_login.php";
 		}
 
