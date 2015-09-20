@@ -3,8 +3,7 @@
 			<a href="index.php"><img style="padding: 10px; vertical-align: middle;" src="img/logo.png" alt="" /></a>
 		</div>
 		<!--<a href="logout">logout</a>-->
-		
-		<a class="btn btn-default" href="stundenplan" role="button">Link</a>
+
 		<div id="username">
 			<p style="display: inline"><?php echo $_SESSION["username"]; ?></p>
 			<input id="logout" type="submit" value="Stundenplan" onclick="<?php redirectToInline('index.php?page=stundenplan'); ?>"/>
