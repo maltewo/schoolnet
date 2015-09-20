@@ -39,8 +39,6 @@ if (isset($_POST["title"])) {
 		<label for="title">Frist:</label>
 		<input id="title" type="date" class="form-control" aria-describedby="basic-addon1" name="timelimit">
 	</div>
-	</div>
-	
 	<div class="col-md-6">
 		<select id="group" class="form-control">
 			<?php 
@@ -53,7 +51,7 @@ if (isset($_POST["title"])) {
 		?>
 		</select>
 	</div>
-	
+	</div>
 	</div>
 		<div class="row" style="margin-top: 20px;">
 			<div class="col-md-12">
