@@ -44,7 +44,7 @@ function getAnswersByExerciseId($pId) {
 
 function deleteExercise($exerciseId) {
 	$lResponse = dbQuery("SELECT OWNER FROM EXERCISES WHERE ID='%s'", $exerciseId)->fetch_assoc();
-	$lOwner = $lResponse[0];
+	$lOwner = $lResponse["OWNER"];
 	
 	if (getUserId() == $lOwner) {
 		dbQuery(cDeleteExercise, $exerciseId);
