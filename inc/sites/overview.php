@@ -23,6 +23,7 @@ require_once APP_ROOT . '/inc/exercise.php';
                   <a href="?page=exercise_results&amp;id=<?php echo $mExercise->mId; ?>"
                      class="list-group-item excercise-list">
                     <h4 class="list-group-item-heading"><?php echo htmlspecialchars($mExercise->mTitle); ?></h4>
+					<a href="?page=overview&delId=<?php echo $mExercise->mId?>" class="glyphicon glyphicon-remove"></a>
                   </a>
                   <?php
                 }
