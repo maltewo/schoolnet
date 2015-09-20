@@ -5,7 +5,7 @@ if ($_SESSION["role"] == 4) {
 	redirectTo("index.php?page=overview");
 } else {
 if (isset($_POST["title"])) {
-	createExercise($_POST["title"], $_POST["question"], $_POST["group-dropdown"]);
+	createExercise($_POST["title"], $_POST["question"], $_POST["group"]);
 	?>
 	<h5>Erstellen erfolgreich</h5>
 	<?php 
@@ -39,7 +39,7 @@ if (isset($_POST["title"])) {
 	</div>
 	
 	<div class="col-md-6">
-		<select>
+		<select id="group" class="form-control">
 			<?php 
 			$mGroups = getGroups();
 			while ($mGroup = $mGroups->fetch_assoc()) {
