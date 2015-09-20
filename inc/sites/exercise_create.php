@@ -37,14 +37,33 @@ if (isset($_POST["title"])) {
 		<input id="title" type="date" class="form-control" aria-describedby="basic-addon1" name="timelimit">
 	</div>
 	</div>
+	
+	<div class="col-md-6">
+		<select>
+			<?php 
+			$mGroups = getGroups();
+			while ($mGroup = $mGroups->fetch_assoc()) {
+			?>
+				<option value="<?php echo $mGroup["ID"]?>"><?php echo $mGroup["GROUP"]?></option>
+			<?php 
+		}
+		?>
+		</select>
+	</div>
 	<div class="col-md-6">
 		<div class="dropdown">
-		<select class="dropdown-menu" aria-labelledby="dropdownMenu1" id="group-dropdown">
+		<label for="dropdownMenu1" style="display: block;">Titel:</label>
+		<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+		<input type="hidden" name="group" value="" id="group"></input>
+		<span id="group-text">Gruppe/Kurs</span>
+		<span class="caret"></span>
+	</button>
+	<ul class="dropdown-menu" aria-labelledby="dropdownMenu1" id="group-dropdown">
 		<?php 
 		$mGroups = getGroups();
 		while ($mGroup = $mGroups->fetch_assoc()) {
 			?>
-			<option value="<?php echo $mGroup["ID"];?>" ><?php echo $mGroup["GROUP"]?></option>
+			<li><a href="#" value="<?php echo $mGroup["ID"]?>"><?php echo $mGroup["GROUP"]?></a></li>
 			<?php 
 		}
 		?>
