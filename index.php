@@ -9,7 +9,7 @@
 session_start();
 define('APP_ROOT', dirname(__FILE__));
 
-if(!isset($_GET['page']) || (!isset($_SESSION['username']) && isset($_GET['page']))) {
+if(!isset($_GET['page']) || (!isset($_SESSION['username']) && $_GET['page'] != "login")) {
     header("Location: index.php?page=login");
     exit();
 }
