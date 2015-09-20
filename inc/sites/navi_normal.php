@@ -6,7 +6,7 @@
 
 		<div id="username">
 			<p style="display: inline"><?php echo $_SESSION["username"]; ?></p>
-			<input id="logout" type="submit" value="Stundenplan" onclick="<?php redirectToInline('index.php?page=stundenplan'); ?>"/>
-			<input id="logout" type="submit" value="Abmelden" onclick="<?php redirectToInline('index.php?page=login&logout=true'); ?>"/>
+			<input class="button" type="submit" value="Stundenplan" onclick="<?php redirectToInline('index.php?page=stundenplan'); ?>"/>
+			<input class="button" type="submit" value="Abmelden" onclick="<?php redirectToInline('index.php?page=login&logout=true'); ?>"/>
 		</div>
 	</nav>
