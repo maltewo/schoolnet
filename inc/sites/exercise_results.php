@@ -1,6 +1,14 @@
 <?php 
 include_once('inc/exercise.php');
 
+if (isset($_POST["action"])) {
+	if ($_POST["action"] == "new") {
+		addAnswer($_POST["answer"], $_GET["id"]);
+	} else {
+		updateAnswer($_POST["answer"], $_GET["id"]);
+	}
+}
+
 $mExercise = getExerciseById($_GET["id"]);
 ?>
 
@@ -24,14 +32,18 @@ $mExercise = getExerciseById($_GET["id"]);
 				<?
 				$mAnswer = getAnswersByExerciseId($_GET["id"]);
 				var_dump($mAnswer);
+				$mAnswerExists = false;
 				if ($mAnswerId != false) { 
 					$mAnswerId = $mAnswer->fetch_assoc();
+					$mAnswerExists = true;
 				}
 				if (isset($mAnswerId["ID"])) {
 					$mAnswerText = getAnswerById($mAnswerId["ID"]);
 					echo $mAnswerText["TEXT"];
 				}
 	?>			</textarea>
+				<button type="submit" class="btn btn-default pull-right">Speichern</button>
+				<input type="text" class="hidden" id="action" value="<?php if ($mAnswerExists) { echo "edit"; } else { echo "new"; }?>"/>
 			</div>
 		</form>
 	<?php 
