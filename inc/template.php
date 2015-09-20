@@ -67,7 +67,7 @@
 
 	<!--Navigation laden-->
 	<?php 
-	echo $template->loadNavigation() ?>
+	echo $template->setNavi(); ?>
 
 	<!--[if lt IE 9]>
 	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -80,8 +80,7 @@
 	<?php echo $template->setBody(); ?>
 
 	<!--Richtige Navigation auswaehlen und laden-->
-	<?php $template->loadNavigation(); ?>
-
+	<?php $template->setNavi(); ?>
 
 <div id="content">
 <?php $template->loadContent(); ?>
