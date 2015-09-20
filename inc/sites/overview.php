@@ -5,9 +5,7 @@ require_once APP_ROOT . '/inc/exercise.php';
   
   <div class="col-md-3"></div>
   <div class="col-md-6">
-    <div class="page-header">
-      <h1>Aufgabenübersicht</h1>
-    </div>
+    <h1>Aufgabenübersicht</h1>
     <div class="list-group">
       
       <?php 
