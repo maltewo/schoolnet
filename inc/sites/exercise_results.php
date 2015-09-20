@@ -14,17 +14,37 @@ $mExercise = getExerciseById($_GET["id"]);
 	<p><?php echo $mExercise->mText;?></p>
 	<h2>Lösungen:</h2>
 	<?php 
-	$mAnswers = getAnswersByExerciseId($_GET["id"]);
-	if ($mAnswers != null) {
-		while ($mAnswerId = $mAnswers->fetch_assoc()) {
-			$mAnswer = getAnswerById($mAnswerId["ID"]);
-	?>
-		<div class="loesung">
-			<h3><?php echo getUserById($mAnswer->mOwner);?></h3>
-			<p><?php echo $mAnswer->mText;?></p>
-		</div>
-	<?php }
-	} ?>
+	if ($_SESSION["role"] == 4) {
+		
+		?>
+		<form method="POST" action="">
+			<div class="form-group">
+				<label for="answer">Antwort:</label>
+				<textarea class="form-control" rows="10" id="answer" name="answer">
+		<?
+		$mAnswer = getAnswersByExerciseId($_GET["id"]);
+		$mAnswerId = $mAnswer->fetch_assoc();
+		if (isset($mAnswerId["ID"])) {
+			$mAnswerText = getAnswerById($mAnswerId["ID"]);
+			echo $mAnswerText["TEXT"];
+		}
+	?>			</textarea>
+			</div>
+		</form>
+	<?php 
+	} else if ($_SESSION["role"] == 2 || $_SESSION["role"] == 3) {	
+		$mAnswers = getAnswersByExerciseId($_GET["id"]);
+		if ($mAnswers != null) {
+			while ($mAnswerId = $mAnswers->fetch_assoc()) {
+				$mAnswer = getAnswerById($mAnswerId["ID"]);
+		?>
+			<div class="loesung">
+				<h3><?php echo getUserById($mAnswer->mOwner);?></h3>
+				<p><?php echo $mAnswer->mText;?></p>
+			</div>
+		<?php }
+		} 
+	}?>
   </div>
   <div class="col-md-3"></div>
 </div>
