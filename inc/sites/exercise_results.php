@@ -28,8 +28,7 @@ $mExercise = getExerciseById($_GET["id"]);
 		<form method="POST" action="">
 			<div class="form-group">
 				<label for="answer">Antwort:</label>
-				<textarea class="form-control" rows="10" id="answer" name="answer">
-				<?
+				<textarea class="form-control" rows="10" id="answer" name="answer"><?
 				$mAnswer = getAnswersByExerciseId($_GET["id"]);
 				$mAnswerExists = false;
 				if ($mAnswerId != false) { 
@@ -40,7 +39,7 @@ $mExercise = getExerciseById($_GET["id"]);
 					$mAnswerText = getAnswerById($mAnswerId["ID"]);
 					echo $mAnswerText["TEXT"];
 				}
-	?>			</textarea>
+				?></textarea>
 				<button type="submit" class="btn btn-default pull-right">Speichern</button>
 				<input type="text" class="hidden" id="action" value="<?php if ($mAnswerExists) { echo "edit"; } else { echo "new"; }?>"/>
 			</div>
