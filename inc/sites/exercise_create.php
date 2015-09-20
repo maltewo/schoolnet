@@ -1,9 +1,9 @@
 <?php 
 include_once 'inc/exercise.php';
+include_once 'inc/utils.php';
 if ($_SESSION["role"] == 4) {
-	header("Location: index.php?page=overview");
-	exit();
-}
+	redirectTo("index.php?page=overview");
+} else {
 if (isset($_POST["title"])) {
 	createExercise($_POST["title"], $_POST["question"], $_POST["group-dropdown"]);
 	?>
@@ -70,4 +70,6 @@ if (isset($_POST["title"])) {
 	
   </div>
 </div>
-
+<?php 
+}
+?>
