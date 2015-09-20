@@ -38,12 +38,14 @@
 		public function loadContent(){
 			$page = $this->page;
 
-			$template = APP_ROOT . "/inc/sites/" . $_GET['page'] . ".php";
-			if(file_exists($template)) {
-				require_once $template;
-			} else {
-					echo "<h1>Seite nicht gefunden!</h1>";
-			}
+			return "test";
+
+			// $template = APP_ROOT . "/inc/sites/" . $_GET['page'] . ".php";
+			// if(file_exists($template)) {
+			// 	require_once $template;
+			// } else {
+			// 		echo "<h1>Seite nicht gefunden!</h1>";
+			// }
 		}
 	}
 
