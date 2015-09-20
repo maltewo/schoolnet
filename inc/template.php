@@ -35,10 +35,6 @@
 			}
 		}
 
-		public function loadNavigation() {
-			include APP_ROOT . "/inc/sites/navi_login.php";
-		}
-
 		public function loadContent(){
 			$page = $this->page;
 
