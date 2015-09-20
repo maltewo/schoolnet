@@ -34,22 +34,28 @@ if (isset($_POST["title"])) {
 	</div>
 	
 	<div class="row">
-		<div class="input-group col-md-6">
+	<div class="col-md-6">
+		<div class="input-group col-md-12">
 		<label for="title">Frist:</label>
 		<input id="title" type="date" class="form-control" aria-describedby="basic-addon1" name="timelimit">
-		<div class="col-md-6">
-			<select id="group" class="form-control">
-				<?php 
-				$mGroups = getGroups();
-				while ($mGroup = $mGroups->fetch_assoc()) {
-				?>
-					<option value="<?php echo $mGroup["ID"]?>"><?php echo $mGroup["GROUP"]?></option>
-				<?php 
-			}
+	</div>
+	</div>
+	<div class="row">
+	<div class="col-md-6">
+		<label for="group">Gruppe:</label>
+		<select id="group" class="form-control">
+			<?php 
+			$mGroups = getGroups();
+			while ($mGroup = $mGroups->fetch_assoc()) {
 			?>
-			</select>
-		</div>
-		</div>
+				<option value="<?php echo $mGroup["ID"]?>"><?php echo $mGroup["GROUP"]?></option>
+			<?php 
+		}
+		?>
+		</select>
+	</div>
+	</div>
+	
 	</div>
 		<div class="row" style="margin-top: 20px;">
 			<div class="col-md-12">
