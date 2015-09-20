@@ -1,8 +1,8 @@
 <?php
 	//include "force-ssl.php";
 
-	include APP_ROOT . "/inc/utils.php";
-	include APP_ROOT . "/inc/account.php";
+	include_once APP_ROOT . "/inc/utils.php";
+	include_once APP_ROOT . "/inc/account.php";
 
 	Class Template {
 		public $page;
